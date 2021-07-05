@@ -1,0 +1,3 @@
+Flask==0.12
+# opencv-python==4.5.2
+# tensorflow 등등 추가해야 함
