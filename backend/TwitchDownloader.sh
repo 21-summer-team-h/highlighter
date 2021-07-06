@@ -3,11 +3,20 @@
 VIDEO_ID=$1
 VIDEO_NAME=${2}.mp4
 CHAT_NAME=${2}.txt
-VIDEO_PATH=/home/video
+VIDEO_PATH=/home/volume/video
 
 # 비디오, 채팅 내용 다운로드
-# -> 다운로드가 완료됐음을 어떻게 알릴지?
-# server.js에서 동기처리해서, 다운로드가 끝나야 다음 함수 수행하는 방향으로 진행하면 되나?
+# -> 다운로드가 완료됐음을 어떻게 알릴지? -> 동기처리 혹은 메세지를 보내기 생각중
+# server.js에서 동기처리한다 해도, sh만 실행시킨 다음 sh가 종료하기 전에 함수로 넘어갈 수도 있음.
+
+# 해결 방안
+# 노드는 동기 비동기
+# 1. sh에서 다운로드가 끝난 후에, node에 메세지를 보내자.
+# -> 리스트
+# 2. 다운로드가 끝난 후에, 파일을 계속 확인하자.
+# -> 파일 이름을 바꿔서 이용한다.
+# 3. sh에서 binary file을 만들어서 node에 메세지를 보낸다.
+
 cd VIDEO_PATH || { echo "No such path. check /home/video exists"; exit 1; }
 
 echo "> Video downloading start"
