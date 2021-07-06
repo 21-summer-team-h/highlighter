@@ -2,7 +2,7 @@
 
 VIDEO_ID=$1
 VIDEO_NAME=${2}.mp4
-CHAT_NAME=${2}.mp4
+CHAT_NAME=${2}.txt
 VIDEO_PATH=/home/video
 
 # 비디오, 채팅 내용 다운로드
