@@ -8,5 +8,7 @@ RUN pip install -r requirements.txt
 
 COPY ./ ./
 
+VOLUME /home/volume/video
+
 # 실행될 python 파일 이름
 # CMD ["app.py"]
