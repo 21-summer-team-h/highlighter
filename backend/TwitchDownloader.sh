@@ -27,4 +27,7 @@ echo "> Chat downloading start"
 TwitchDownloaderCLI -m ChatDownload --id ${VIDEO_ID} --timestamp-format Relative -o ${CHAT_NAME}
 echo "> Chat downloading end"
 
+# curl을 이용하면, 다운로드 끝났다고 요청보낼 수 있음.
+curl -X GET -H "Content-Type: application/json; charset=utf-8" -d "{'message': ${VIDEO_ID}}" http://127.0.0.1:3000/api/node/download
+
 exit 0
