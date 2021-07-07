@@ -4,11 +4,13 @@ WORKDIR /app
 
 COPY ./package.json ./
 
+RUN apt-get install curl
+
 RUN npm install
 
-RUN chmod +x TwitchDownloader.sh
-
 COPY . .
+
+RUN chmod +x TwitchDownloader.sh
 
 CMD npm run start
 
