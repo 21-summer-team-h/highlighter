@@ -80,10 +80,6 @@ WSGI_APPLICATION = 'aipart.wsgi.application'
 #    }
 # }
 
-import my_settings
-
-DATABASES = my_settings.DATABASES
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
