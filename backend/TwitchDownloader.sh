@@ -17,14 +17,14 @@ VIDEO_PATH=/home/volume/video
 # -> 파일 이름을 바꿔서 이용한다.
 # 3. sh에서 binary file을 만들어서 node에 메세지를 보낸다.
 
-cd VIDEO_PATH || { echo "No such path. check /home/video exists"; exit 1; }
+# cd VIDEO_PATH || { echo "No such path. check /home/video exists"; exit 1; }
 
 echo "> Video downloading start"
-TwitchDownloaderCLI -m VideoDownload --id ${VIDEO_ID} -o ${VIDEO_NAME}
+./TwitchDownloaderCLI -m VideoDownload --id ${VIDEO_ID} -o ${VIDEO_NAME}
 echo "> Video downloading end"
 
 echo "> Chat downloading start"
-TwitchDownloaderCLI -m ChatDownload --id ${VIDEO_ID} --timestamp-format Relative -o ${CHAT_NAME}
+./TwitchDownloaderCLI -m ChatDownload --id ${VIDEO_ID} --timestamp-format Relative -o ${CHAT_NAME}
 echo "> Chat downloading end"
 
 # curl을 이용하면, 다운로드 끝났다고 요청보낼 수 있음.

@@ -10,6 +10,8 @@ RUN npm install
 
 COPY . .
 
+RUN chmod +x TwitchDownloaderCLI
+
 RUN chmod +x TwitchDownloader.sh
 
 CMD npm run start
