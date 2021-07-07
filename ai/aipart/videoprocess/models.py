@@ -16,8 +16,12 @@ class Video(models.Model):
 class Address(models.Model):
     video_index = models.IntegerField(max_length=)
     highlight_index = model.CharField(max_length=)
+    highlight_path = model.CharField(max_length=)
     start = model.CharField(max_length=)
     end = model.CharField(max_length=)
+    emotion_1 = model.IntegerField(max_length=)
+    emotion_2 = model.IntegerField(max_length=)
+    emotion_3 = model.IntegerField(max_length=)
 
     class Meta:
         managed = False

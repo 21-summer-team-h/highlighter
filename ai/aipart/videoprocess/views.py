@@ -5,4 +5,5 @@ from .models import Address
 
 def address_view(request):
     address = Address.objects.all()
-    # return 
+    return address
+    # return render(request, {"address": address})
