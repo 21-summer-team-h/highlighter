@@ -3,7 +3,7 @@
 VIDEO_ID=$1
 VIDEO_NAME=${2}.mp4
 CHAT_NAME=${2}.txt
-VIDEO_PATH=/home/volume/video
+VIDEO_PATH=/app
 
 # 비디오, 채팅 내용 다운로드
 # -> 다운로드가 완료됐음을 어떻게 알릴지? -> 동기처리 혹은 메세지를 보내기 생각중
@@ -17,9 +17,14 @@ VIDEO_PATH=/home/volume/video
 # -> 파일 이름을 바꿔서 이용한다.
 # 3. sh에서 binary file을 만들어서 node에 메세지를 보낸다.
 
-# cd VIDEO_PATH || { echo "No such path. check /home/video exists"; exit 1; }
+# cd ${VIDEO_PATH}
+
+echo "> ffmpeg downloading start"
+./TwitchDownloaderCLI --download-ffmpeg
+echo "> ffmpeg downloading end"
 
 echo "> Video downloading start"
+# ffmpeg가 없으면 다운로드를 못함.
 ./TwitchDownloaderCLI -m VideoDownload --id ${VIDEO_ID} -o ${VIDEO_NAME}
 echo "> Video downloading end"
 

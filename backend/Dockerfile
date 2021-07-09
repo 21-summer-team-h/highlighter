@@ -1,12 +1,15 @@
-FROM node:alpine
+FROM node
 
 WORKDIR /app
 
+VOLUME /app
+
 COPY ./package.json ./
 
-RUN apt-get install curl
-
 RUN npm install
+
+COPY ./TwitchDownloader.sh /home/video
+COPY ./TwitchDownloaderCLI /home/video
 
 COPY . .
 
@@ -14,6 +17,4 @@ RUN chmod +x TwitchDownloaderCLI
 
 RUN chmod +x TwitchDownloader.sh
 
-CMD npm run start
-
-VOLUME /home/volume/video
+RUN npm run start
