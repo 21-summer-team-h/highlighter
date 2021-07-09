@@ -6,10 +6,11 @@ COPY ./package.json ./
 
 RUN npm install
 
-RUN chmod +x TwitchDownloader.sh
+#RUN chmod +x TwitchDownloader.sh
 
 COPY . .
 
-CMD npm run start
+CMD node mysql.js
 
-VOLUME /home/volume/video
+
+#VOLUME /home/volume/video
