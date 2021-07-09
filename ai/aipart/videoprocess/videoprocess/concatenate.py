@@ -1,6 +1,6 @@
 from moviepy.editor import *
 
-def concatenate_clip(path):
+def concatenate_clip(path_list):
     clip_list = []
     for p in path_list:
         clip_list.append(VideoFileClip(p))
@@ -18,12 +18,12 @@ def save_clip(video, save_path):
 
 # final_clip.write_videofile(path_write)
 
-path_list = []
+# path_list = []
 
-for i in range(1, highlight_max+1):
-    path = Address.objects.get(pk=i).highlight_path
-    path_list.append(path)
-    concatenate = concatenate_clip(path_list)
+# for i in range(1, highlight_max+1):
+#     path = Address.objects.get(pk=i).highlight_path
+#     path_list.append(path)
+#     concatenate = concatenate_clip(path_list)
 
-save_clip(save_path)
+# save_clip(save_path)
 # set save_path
