@@ -1,17 +1,15 @@
 from moviepy.editor import *
+ 
+# path = target path
 
-""" 
-path = target path
+# # path = 
+# clip = VideoFileClip(path)
+# clip = clip.subclip(1, 4)
 
-# path = 
-clip = VideoFileClip(path)
-clip = clip.subclip(1, 4)
+# path_write = target save path
 
-path_write = target save path
-
-# path_write = 
-# clip.write_videofile(path_write)
-"""
+# # path_write = 
+# # clip.write_videofile(path_write)
 
 def cut_clip(exist_path, start, end, save_path):
     clip = VideoFileClip(path)
