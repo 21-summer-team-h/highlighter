@@ -1,18 +1,5 @@
-import cv2
 import numpy as np
-from keras.preprocessing.image import img_to_array
-from keras.models import load_model
-# EMOTIONS = ["Angry","Disgusting","Fearful", "Happy", "Sad", "Surprising", "Neutral"]
-
-VIDEO_FILE_PATH = "./test.mp4"
-video = cv2.VideoCapture(VIDEO_FILE_PATH)
-if video.isOpened() == False:
-  print("Failed to upload video!")
-  exit()
-
-face_cascade = cv2.CascadeClassifier('./haarcascade_frontalface.xml')
-emotion_classifier = load_model('./emotion_model.hdf5', compile=False)
-
+import cv2
 
 def FER (video, face_cascade):
 
@@ -51,7 +38,6 @@ def FER (video, face_cascade):
 
             predictions = emotion_classifier.predict(target)[0]
             emotionResults[predictions.argmax()] += 1
-
 
     results = [0,0,0]
     for i in range(3):
