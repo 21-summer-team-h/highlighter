@@ -1,10 +1,14 @@
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test',
-        'USER': 'root',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '', 
+        'NAME': 'highlightvideo',
+        'USER': 
+        'PASSWORD':
+        'HOST': 
+        'PORT': 
     }
 }
+
+import settings 
+
+SECRET_KEY = settings.SECRET_KEY
