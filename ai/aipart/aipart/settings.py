@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'videoprocess',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'aipart.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,3 +127,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import my_settings
 
 DATABASES = my_settings.DATABASES
+
+# os.environ.setdefault("DJANGO_SETTINGS_MODULE", "my_settings")
+
+# # from django.core.wssgi import get_wsgi_application
+# # application=get_wsgi_application()
+
+# # def test():
+# #     print('test')
+
+# #     if __name__ == '__main__':
+# #         test()
