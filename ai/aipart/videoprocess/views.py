@@ -1,9 +1,6 @@
 from django.shortcuts import render
+from .models import Video
 
-# Create your views here.
-from .models import Address
-
-def address_view(request):
-    address = Address.objects.all()
-    return address
-    # return render(request, {"address": address})
+def video_view(request):
+    videos = Video.objects.all()
+    return render(request, 'index.html', {"videos": videos})
