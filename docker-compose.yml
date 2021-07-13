@@ -20,4 +20,16 @@ services:
 
   backend:
     build: ./backend
-    context: ./backend
+    # context: ./backend
+    # ERROR: The Compose file '.\docker-compose.yml' is invalid because: Unsupported config option for services.backend: 'context'
+    command: >
+      bash -c "cd aipart
+      && python manage.py runserver 0.0.0.0:8000"
+    # volumes:
+    #   - ./:/usr/src/app
+    # 컴퓨터 폴더와 도커 폴더를 연결하는 부분.. 필요없겠죠?
+    ports:
+      - 8000:8000
+  # env_file:
+  #   - ./.env.dev
+  # 개발 환경과 서비스 환경을 분리하는 코드 - 일단은 보류
