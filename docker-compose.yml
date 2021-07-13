@@ -1,0 +1,23 @@
+version: "3"
+services:
+  frontend:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./frontend
+    # chown :root ./datadirectory && chmod g+rwX ./datadirectory
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
+    stdin_open: true
+
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - "3000:80"
+
+  backend:
+    build: ./backend
+    context: ./backend
