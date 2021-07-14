@@ -25,9 +25,8 @@ services:
     command: >
       bash -c "cd aipart
       && python manage.py runserver 0.0.0.0:8000"
-    # volumes:
-    #   - ./:/usr/src/app
-    # 컴퓨터 폴더와 도커 폴더를 연결하는 부분.. 필요없겠죠?
+    volumes:
+      - ./:/usr/src/app
     ports:
       - 8000:8000
   # env_file:
