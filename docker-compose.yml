@@ -25,10 +25,15 @@ services:
     command: >
       bash -c "cd aipart
       && python manage.py runserver 0.0.0.0:8000"
+    command: >
+      bash -c "cd aipart &&
+      gunicorn aipart.wsgi:application --bind 0.0.0.0:8000"
     volumes:
       - ./:/usr/src/app
-    ports:
-      - 8000:8000
+    expose:
+      - 8000
+    # ports:
+    #   - 8000:8000
   # env_file:
   #   - ./.env.dev
   # 개발 환경과 서비스 환경을 분리하는 코드 - 일단은 보류
