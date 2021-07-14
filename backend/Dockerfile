@@ -22,5 +22,6 @@ RUN apk add gcc python3-dev musl-dev mariadb-connector-c-dev zlib-dev jpeg-dev
 # ... 필요할지 모르겠지만 일단 넣었습니다.
 
 COPY . /usr/src/app/
+RUN pip install --default-timeout=100 future
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
