@@ -4,6 +4,9 @@ from django.db import connections
 class Video(models.Model):
     video_index = models.AutoField(primary_key=True)
     video_name = models.CharField(max_length=40, blank=True, null=True)
+    video_format = models.CharField(max_length=10, blank=True, null=True)
+    path = models.CharField(max_length=100, blank=True, null=True)
+    file_size = models.IntegerField(blank=True, null=True)
     video_time = models.TimeField(blank=True, null=True)
 
     class Meta:
