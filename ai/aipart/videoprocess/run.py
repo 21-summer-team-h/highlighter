@@ -6,7 +6,7 @@ from keras.models import load_model
 from videoprocess.cut import cut_clip
 from emotionprocess.FEC import FER
 from videoprocess.concatenate import concatenate_clip, save_clip
-
+import mysql
 
 
 # cut
@@ -16,6 +16,7 @@ for i in range(1, highlight_max+1):
     end = Address.objects.get(pk=i).end
     save_path = Address.objects.get(pk=i).highlight_path
     cut_clip(exist_path, start, end, save_path)
+    mysql.cutvideo(8,i,save_path)   #video_index 8로 하이라이트저장
 
 
 
