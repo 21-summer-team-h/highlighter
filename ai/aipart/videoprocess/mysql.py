@@ -1,10 +1,11 @@
 import pymysql
+from .sql_info import sql_name, sql_user, sql_password, HOST
 
 def insert_cutvideo(v_index, h_index, h_path):
     db = pymysql.connect(
-    user='asfasf',
-    passwd='fafasf',
-    host='awfawf',
+    user=sql_user(),
+    passwd=sql_password(),
+    host=HOST(),
     db='highlighter',
     charset='utf8'
     )
@@ -16,9 +17,9 @@ def insert_cutvideo(v_index, h_index, h_path):
 
 def update_emotion(v_index, h_index, e1,e2,e3):
     db = pymysql.connect(
-    user='awfawf',
-    passwd='asfafw',
-    host='awfawf',
+    user=sql_user(),
+    passwd=sql_password(),
+    host=HOST(),
     db='highlighter',
     charset='utf8'
     )
@@ -30,9 +31,9 @@ def update_emotion(v_index, h_index, e1,e2,e3):
 
 def update_concatenate(v_index, concatenate_path):
     db = pymysql.connect(
-    user='awfawf',
-    passwd='asfafw',
-    host='awfawf',
+    user=sql_user(),
+    passwd=sql_password(),
+    host=HOST(),
     db='highlighter',
     charset='utf8'
     )
