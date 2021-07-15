@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from send_video.views import DownloadVideo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('download/', DownloadVideo, name='download_video'),
 ]
