@@ -1,0 +1,37 @@
+#logo {
+    display: block;
+    width: 150px;
+    height: 70px;
+    margin-bottom: 10px;
+    position: relative;
+    bottom: 70px;
+ }
+ #mainbox {
+    width: 500px;
+    height: 500px;
+    border: 5px black;
+    position: relative;
+    top: 200px;
+    left: 50px;
+}
+#text1 {
+    display: block;
+    font-size: 2rem;
+    color: black;
+    font-family: Georgia;
+    font-weight: bold;
+    margin: 10px;
+    position: relative;
+    float: left;
+}
+#downloadButton {
+    display: inline;
+    height: 40px;
+    width: 40px;
+    color: black;
+    border: 5px black;
+    border-radius: 1px;
+    font-weight: bold;
+    position: relative;
+    right: 40px;
+}
