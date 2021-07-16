@@ -28,6 +28,7 @@ setuptools == 56.0.0
 
 tensorflow == 2.5.0
 tensorflow-estimator == 2.5.0
+gunicorn
 
 
 # # ?
