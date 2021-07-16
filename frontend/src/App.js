@@ -1,24 +1,18 @@
-import axios from 'axios';
+import React from "react";
+import './App.css';
+import { BrowserRouter, Route } from "react-router-dom";
+import SendLink from './Components/Views/sendLink';
+import Result from './Components/Views/showResult';
 
-var fileDownload = require('js-file-download');
 function App() {
-    const handlePDFDownload = () => {
-        axios.get('http://localhost:8000/download', { 
-            responseType: 'blob',
-        }).then(res => {
-            fileDownload(res.data, 'filename.mp4');
-            console.log(res);
-        }).catch(err => {
-            console.log(err);
-        })
-}
-return (
-    <div>
-       <button
-          onClick={() => handlePDFDownload()}>Download File!
-       </button>
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <Route exact path = "/" component = { SendLink }></Route>
+        <Route exact path = "/result" component = { Result }></Route>
+      </BrowserRouter>
     </div>
-    )
+  );
 }
 
 export default App;
