@@ -57,7 +57,7 @@ services:
             context: ./backend
             dockerfile: Dockerfile
         container_name: backend
-        command: gunicorn aipart.wsgi:application --bind 0.0.0.0:8000
+        command: gunicorn backend.wsgi:application --bind 0.0.0.0:8000
         volumes:
             - ./static:/usr/src/app/staticfiles
         expose:
