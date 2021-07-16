@@ -37,3 +37,39 @@ services:
   # env_file:
   #   - ./.env.dev
   # 개발 환경과 서비스 환경을 분리하는 코드 - 일단은 보류
+
+version: '3'
+
+services: 
+    frontend:
+        build: 
+            context: ./frontend
+            dockerfile: Dockerfile
+        volumes:
+            - /app/node_modules
+            - ./frontend:/app
+        stdin_open: true
+        expose: 
+            - "3000"
+
+    backend:
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        container_name: backend
+        command: gunicorn aipart.wsgi:application --bind 0.0.0.0:8000
+        volumes:
+            - ./static:/usr/src/app/staticfiles
+        expose:
+            - "8000"
+
+    nginx:
+      build:
+        dockerfile: Dockerfile
+        context: ./nginx
+      container_name: nginx
+      ports:
+        - "80:80/tcp"
+      volumes:
+        - ./nginx:/etc/nginx/conf.d
+        - ./static:/staticfiles
