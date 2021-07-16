@@ -1,20 +1,8 @@
-import cv2
 import numpy as np
+import cv2
 from keras.preprocessing.image import img_to_array
-from keras.models import load_model
-# EMOTIONS = ["Angry","Disgusting","Fearful", "Happy", "Sad", "Surprising", "Neutral"]
 
-VIDEO_FILE_PATH = "./test.mp4"
-video = cv2.VideoCapture(VIDEO_FILE_PATH)
-if video.isOpened() == False:
-  print("Failed to upload video!")
-  exit()
-
-face_cascade = cv2.CascadeClassifier('./haarcascade_frontalface.xml')
-emotion_classifier = load_model('./emotion_model.hdf5', compile=False)
-
-
-def FER (video, face_cascade):
+def FER (video, face_cascade, emotion_classifier):
 
     emotionResults = np.array([0,0,0,0,0,0,0])
 
@@ -33,11 +21,7 @@ def FER (video, face_cascade):
 
           grayimg = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-          faces = face_cascade.detectMultiScale(grayimg,
-                                           scaleFactor= 1.1,
-                                           minNeighbors=5,  
-                                           minSize=(20,20)  
-          )
+          faces = face_cascade.detectMultiScale(grayimg, scaleFactor= 1.1, minNeighbors=5, minSize=(20,20))
 
           if len(faces) > 0 :
             face = sorted(faces, reverse=True, key=lambda x: (x[2] - x[0]) * (x[3] - x[1]))[0]
@@ -52,13 +36,14 @@ def FER (video, face_cascade):
             predictions = emotion_classifier.predict(target)[0]
             emotionResults[predictions.argmax()] += 1
 
-
     results = [0,0,0]
+
     for i in range(3):
         label = emotionResults.argmax()
         results[i] = label
         emotionResults[label] = 0
 
     #video.release()
+    print(results)
     return results
 

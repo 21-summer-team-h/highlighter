@@ -140,3 +140,6 @@ cython_debug/
 test.py
 sample.mp4
 test1.mp4
+test.mp4
+my_settings.py
+sql_info.py
