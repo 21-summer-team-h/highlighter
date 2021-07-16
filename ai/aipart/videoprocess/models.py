@@ -3,17 +3,14 @@ from django.db import connections
 
 class Video(models.Model):
     video_index = models.AutoField(primary_key=True)
-    video_name = models.CharField(max_length=40, blank=True, null=True)
-    video_format = models.CharField(max_length=10, blank=True, null=True)
-    path = models.CharField(max_length=100, blank=True, null=True)
-    file_size = models.IntegerField(blank=True, null=True)
-    video_time = models.TimeField(blank=True, null=True)
+    video_path = models.CharField(max_length=100, blank=True, null=True)
+    highlight_count = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'video'
-
-class Highlightvideo(models.Model):
+        
+class Highlight(models.Model):
     video_index = models.ForeignKey('Video', models.DO_NOTHING, db_column='video_index', blank=True, null=True)
     highlight_index = models.IntegerField(blank=True, null=True)
     highlight_path = models.CharField(max_length=100, blank=True, null=True)
@@ -25,4 +22,4 @@ class Highlightvideo(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'highlightvideo'
+        db_table = 'highlight'

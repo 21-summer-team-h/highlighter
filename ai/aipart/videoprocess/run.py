@@ -6,16 +6,18 @@ from keras.models import load_model
 from videoprocess.cut import cut_clip
 from emotionprocess.FEC import FER
 from videoprocess.concatenate import concatenate_clip, save_clip
-import mysql
 
 from .models import Video, Highlightvideo
 
 
+highlight_max = Video.objects.get(pk=i).highlight_count
 
 # cut
+
+before_highlight_video = Video.objects.get(pk=i).video_path
+# 자를 영상의 video path 가지고 옴
+
 for i in range(1, highlight_max+1):
-    exist_path = Video.objects.get(pk=i).path
-    # 자를 영상의 path를 불러옴
     start = Highlightvideo.objects.get(pk=i).start
     # 자를 영상의 시작 시간을 불러옴
     end = Highlightvideo.objects.get(pk=i).end
@@ -24,8 +26,9 @@ for i in range(1, highlight_max+1):
     # 자르고 난 후 저장할 path를 불러옴
     cut_clip(exist_path, start, end, save_path)
     # 자르기 수행 + 저장 수행
-    mysql.cutvideo(8,i,save_path)   #video_index 8로 하이라이트번호를 1부터 highlight_max까지 각 경로를 저장
-    mysql.cutvideo(8, i, save_path) #video_index 8로 하이라이트저장
+    
+    # mysql.cutvideo(8,i,save_path)   #video_index 8로 하이라이트번호를 1부터 highlight_max까지 각 경로를 저장
+    # mysql.cutvideo(8, i, save_path) #video_index 8로 하이라이트저장
 
 path_list = []
 # 하이라이트 영상 path list
