@@ -9,6 +9,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Route exact path = "/" component = { SendLink }></Route>
+		{/* result로 page mapping */}
         <Route exact path = "/result" component = { Result }></Route>
       </BrowserRouter>
     </div>
