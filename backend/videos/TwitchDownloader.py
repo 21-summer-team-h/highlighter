@@ -9,11 +9,7 @@ def twitchDownload(VIDEO_ID):
     subprocess.run(["echo", "mp4complete"])
     retxt = subprocess.run(["/usr/src/app/videos/TwitchDownloaderCLI", "-m", "ChatDownload", "--id", VIDEO_ID, "--timestamp-format", "Relative", "-o", "./videos/test.txt"])
     subprocess.run(["echo", "txtcomplete"])
-    subprocess.run(["echo", str(remp4.returncode)])
-    subprocess.run(["echo", "ddddddd"])
-    #subprocess.run(["echo", retxt.returncode])
-    subprocess.run(["echo", "ddddddd"])
-    if remp4 and retxt:
+    if str(remp4.returncode) == '0' and  str(retxt.returncode) == '0':
         return True
     else:
         return False

@@ -16,7 +16,6 @@ def download(request) :
         return Response(data="Downloaded")
     else :
         return Response(data="No video")
-    return Response(status=status.HTTP_201_OK)
 
 @api_view(['GET'])
 def edit(request) :

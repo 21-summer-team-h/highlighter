@@ -50,7 +50,7 @@ const SendLink = () => {
                 .then(response => {
                     if (response.data == "Downloaded") {
                         alert("Wait for video!");
-                        waitForVideo()
+                        //waitForVideo()
                     }
                     else {
                         alert("Invalid video ID");
