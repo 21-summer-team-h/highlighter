@@ -13,11 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from os import name
 from django.contrib import admin
 from django.urls import path
 from videoSender.views import DownloadVideo
+from api.views import download
 
 urlpatterns = [
     path('api/admin/', admin.site.urls),
-    path('api/download', DownloadVideo, name="download_video")
+    path('api/download', download, name="download_video_backend_2_twitch"),
+    path('api/getVideo', DownloadVideo, name="download_video_twitch_2_backend")
 ]
