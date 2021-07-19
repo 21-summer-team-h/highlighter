@@ -5,7 +5,7 @@ export default function ValidateLink(link) {
       error = "No link";
 
     } else {
-        let Url = /https:\/\/twitch.tv\/videos\/[0-9].{3,20}/;
+        let Url = /https:\/\/www.twitch.tv\/videos\/[0-9].{3,20}/;
         let urlTest = Url.test(link);
 
         if(!urlTest){

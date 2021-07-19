@@ -25,3 +25,7 @@ COPY . /usr/src/app/
 RUN pip install --default-timeout=100 future
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
+
+RUN chmod +x ./videos/TwitchDownloaderCLI
+
+RUN chmod +x ./videos/TwitchDownloader.sh
