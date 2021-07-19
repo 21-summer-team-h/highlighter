@@ -18,9 +18,10 @@ from django.contrib import admin
 from django.urls import path
 from videoSender.views import DownloadVideo
 from api.views import download
-
+from api.views import edit
 urlpatterns = [
     path('api/admin/', admin.site.urls),
-    path('api/download', download, name="download_video_backend_2_twitch"),
-    path('api/getVideo', DownloadVideo, name="download_video_twitch_2_backend")
+    path('api/download/', download, name="download_video_backend_2_twitch"),
+    path('api/getVideo/', DownloadVideo, name="download_video_twitch_2_backend"),
+    path('api/getedit/', edit, name="aaa")
 ]

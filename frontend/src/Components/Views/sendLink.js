@@ -45,6 +45,7 @@ const SendLink = () => {
         // id만 추출해서 backend로 전송한다.
         else {
             const videoID = videoLink.substring(29,);
+            console.log(videoID);
             axios.post('/api/download/', { videoID : videoID })
                 .then(response => {
                     if (response.data == "Downloaded") {
