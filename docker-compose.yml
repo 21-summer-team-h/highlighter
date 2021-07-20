@@ -19,7 +19,7 @@ services:
         container_name: backend
         command: gunicorn backend.wsgi:application --bind 0.0.0.0:8000 -t 0
         volumes:
-            - ./static:/usr/src/app/staticfiles
+            - ./backend:/usr/src/app
         expose:
             - "8000"
 
