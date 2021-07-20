@@ -144,3 +144,6 @@ test.mp4
 my_settings.py
 sql_info.py
 .venv
+#동영상 파일
+v*.mp4
+v*.txt

@@ -1,10 +1,9 @@
   
 # MUST
 Django==3.2.5
-#pandas==1.2.4
+pandas==1.2.4
 #opencv-contrib-python==4.5.2.52
 
-#pip == 21.1.3
 pylint == 2.9.3
 
 requests == 2.25.1
