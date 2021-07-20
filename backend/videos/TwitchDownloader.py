@@ -1,6 +1,7 @@
 import subprocess
 import os
 from videoprocess.models import Video
+from videoprocess.chatextractor.chat_extractor_copy1 import selecthighlight
 
 def twitchDownload(VIDEO_ID):
     target = Video.objects.order_by('-video_index')[0]
@@ -16,7 +17,7 @@ def twitchDownload(VIDEO_ID):
     subprocess.run(["echo", "mp4complete"])
     retxt = subprocess.run(["/usr/src/app/videos/TwitchDownloaderCLI", "-m", "ChatDownload", "--id", VIDEO_ID, "--timestamp-format", "Relative", "-o", VIDEO_txt_PATH])
     subprocess.run(["echo", "txtcomplete"])
-    
+    selecthighlight(VIDEO_index)
 
     if str(remp4.returncode) == '0' and  str(retxt.returncode) == '0':
         return True

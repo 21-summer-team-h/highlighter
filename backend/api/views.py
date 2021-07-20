@@ -8,12 +8,11 @@ from videos.TwitchDownloader import twitchDownload
 import subprocess
 import os
 from pathlib import Path
-from videoprocess.chatextractor.chat_extractor_copy1 import selecthighlight
+
 @api_view(['POST'])
 def download(request) :
     videoID = str(request.data.get('videoID'))      #vidoeID = 트위치영상 아이디
     if twitchDownload(videoID) == True :
-        #selecthighlight(videoID)
         return Response(data="Downloaded")
     else :
         return Response(data="No video")
