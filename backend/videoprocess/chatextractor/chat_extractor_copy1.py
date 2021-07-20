@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime, timedelta
 import pandas as pd
+
 from videoprocess.models import Video,Highlight
+# from videoprocess.run import video_process
 
 def extract_time(text):
     text=text.split("[")[1]
@@ -33,32 +36,35 @@ def extract_text(text):
 #     return text
 
 def selecthighlight(VIDEO_index):
-    print("selecthighlight1")
     VIDEO_txt_PATH="/usr/src/app/videos/v"+str(VIDEO_index)+".txt"
     df = pd.read_table(VIDEO_txt_PATH) # 본인 경로!!
-    print("selecthighlight2")
     df.columns=['origin']
 
     #print(df)
 
     df2= pd.DataFrame(columns = ['time', 'text'])
 
-    #append까지 하려고 하니깐 len(df)는 너무 큰 가봐요..
+    #append까지 하려고 하니깐 len(df)는 너무 큰가 봐요..
     for i in range(len(df)) :
         df2=df2.append({'time':extract_time(str(df.iloc[i])), 'text':extract_text(str(df.iloc[i]))},ignore_index=True)
-    print(df2)
-    print("tailtest")
-    print(df2.tail())
     
     highlight=pd.DataFrame(df2['time'].value_counts().head(5).rename_axis("TIME").reset_index(name="COUNTS"))
-    print(highlight)
-    print(highlight["TIME"].iloc[0])
-    print(highlight["TIME"].iloc[1])
-    print(type(highlight["TIME"].iloc[1]))
+
     for i in range(5):
-        HIGHLIGHT_db_PATH="/usr/src/app/videos/v"+str(VIDEO_index)+"-h"+i+".mp4"
-        new = Highlight(video_index = VIDEO_index, highlight_index = i, highlight_path = HIGHLIGHT_db_PATH, start=highlight["TIME"].iloc[i])  
+        tmp = datetime.strptime(highlight["TIME"].iloc[i] + ":00", '%H:%M:%S')
+        HIGHLIGHT_db_PATH="/usr/src/app/videos/v"+str(VIDEO_index)+"-h"+str(i)+".mp4"
+        # Video instance로 넣어줘야 하기 때문에 Video.objects.get이 필요함. (primary key라서)
+        new = Highlight(video_index = Video.objects.get(video_index = VIDEO_index),
+         highlight_index = i, highlight_path = HIGHLIGHT_db_PATH,
+          start = highlight["TIME"].iloc[i], end = str(tmp + timedelta(minutes=1))[11:]
+          )
         new.save()
+    print("highlighting finished")
+
+    # video_process()
+
+    print("video_process finished")
+
 
 def savetext():
     save1=open('./save_top1.txt','w',encoding='utf-8')
