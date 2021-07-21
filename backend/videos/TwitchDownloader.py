@@ -3,8 +3,11 @@ import os
 from api.models import Video
 from videoprocess.chatextractor.chat_extractor_copy1 import selecthighlight
 
+import django.db
+
 def twitchDownload(VIDEO_ID):
     # 현재 값이 아무것도 없으면 error 발생
+    django.db.close_old_connections()
     target = Video.objects.order_by('-video_index')[0]
 
     VIDEO_index = int(target.video_index) + 1         #추가할 비디오 인덱스
@@ -24,6 +27,7 @@ def twitchDownload(VIDEO_ID):
     subprocess.run(["echo", "txtcomplete"])
 
     # highlight 수집
+    django.db.close_old_connections()
     selecthighlight(VIDEO_index)
 
     if str(remp4.returncode) == '0' and  str(retxt.returncode) == '0':

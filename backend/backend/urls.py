@@ -19,6 +19,8 @@ from django.urls import path
 from videoSender.views import DownloadVideo
 from api.views import download
 from api.views import edit
+
+
 urlpatterns = [
     path('api/admin/', admin.site.urls),
     path('api/download/', download, name="download_video_backend_2_twitch"),

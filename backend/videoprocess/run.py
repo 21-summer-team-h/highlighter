@@ -9,6 +9,8 @@ from videoprocess.videoprocess.concatenate import concatenate_clip
 
 from api.models import Video, Highlight
 
+import django.db
+
     #vo5.mp4
 def all_concatenate(target,path_list):
     # concatenate
@@ -30,16 +32,19 @@ def get_emotion(target,path_list):
         emotion1, emotion2, emotion3 = FER(video, face_cascade, emotion_classifier)
         # 감정 분석 후 emotion1,2,3에다가 저장
         print("asdasd")
+        django.db.close_old_connections()
         highlight_target = Highlight.objects.get(video_index = target.video_index, highlight_index = p)
-        highlight_target.update(emotion_1 = emotion1)
-        highlight_target.update(emotion_2 = emotion2)
-        highlight_target.update(emotion_3 = emotion3)
+        highlight_target.emotion_1 = emotion1
+        highlight_target.emotion_2 = emotion2
+        highlight_target.emotion_3 = emotion3
+        highlight_target.save()
         print("감정중"+str(p)+"")
         # mysql.update_emotion(8,i,emotion1,emotion2,emotion3)
         # #video_index 8로 하이라이트번호를 1부터 highlight_max까지 각 감정을 추가
     #all_concatenate(target,path_list)
 
 def video_process():
+    django.db.close_old_connections()
     target = Video.objects.order_by('-video_index')[0]
     print("-----")
     # 원본 영상 -> target
@@ -90,6 +95,7 @@ def video_process():
         endtime=(int(str(end)[0:2])*3600 + int(str(end)[3:5])*60 + int(str(end)[6:8]))
         print(endtime)
         print(path_list)
+        django.db.close_old_connections()
 
         cut_clip(target_path, starttime, endtime, save_path)
         # 자르기 수행 + 저장 수행
@@ -98,4 +104,7 @@ def video_process():
     print(path_list)
 
     get_emotion(target,path_list)
-video_process()
+# t = Video.objects.order_by('-video_index')[0]
+# pl = ['/usr/src/app/videos/v13-h0.mp4', '/usr/src/app/videos/v13-h1.mp4', '/usr/src/app/videos/v13-h2.mp4', '/usr/src/app/videos/v13-h3.mp4', '/usr/src/app/videos/v13-h4.mp4']
+
+# get_emotion(t, pl)

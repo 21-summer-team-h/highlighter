@@ -21,7 +21,6 @@ moviepy == 1.0.2
 gunicorn
 django-cors-headers
 
-
 opencv-contrib-python==4.5.2.52
 
 h5py  == 3.1.0
