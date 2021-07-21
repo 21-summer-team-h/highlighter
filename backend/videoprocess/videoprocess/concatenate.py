@@ -1,11 +1,11 @@
 from moviepy.editor import *
 
-def concatenate_clip(path_list):
+def concatenate_clip(final_path,path_list):
     clip_list = []
     for p in path_list:
         clip_list.append(VideoFileClip(p))
     concatenate = concatenate_videoclips(clip_list)
-    return concatenate
+    concatenate.write_videofile(final_path)
 
 # path = 
 # clip = VideoFileClip(path)
@@ -13,8 +13,8 @@ def concatenate_clip(path_list):
 # clip2 = clip.subclip(5, 7)
 # final_clip = concatenate_videoclips([clip1, clip2])
 
-def save_clip(video, save_path):
-    concatenate.write_videofile(save_path)
+#def save_clip(video, save_path):
+    
 
 # final_clip.write_videofile(path_write)
 

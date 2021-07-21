@@ -5,13 +5,41 @@ from tensorflow.keras.models import load_model
 
 from videoprocess.videoprocess.cut import cut_clip
 from videoprocess.emotionprocess.FEC import FER
-from videoprocess.videoprocess.concatenate import concatenate_clip, save_clip
+from videoprocess.videoprocess.concatenate import concatenate_clip
 
 from api.models import Video, Highlight
 
+    #vo5.mp4
+def all_concatenate(target,path_list):
+    # concatenate
+    final_path=target.final_path
+    concatenate_clip(final_path,path_list)
+
+    # mysql.update_concatenate(8, save_path) 
+    # # video_index 8에 만들어진 비디오 경로 추가  
+
+def get_emotion(target,path_list):
+    # get emotion
+    face_cascade = cv2.CascadeClassifier('/usr/src/app/videoprocess/emotionprocess/haarcascade_frontalface.xml')
+    emotion_classifier = load_model('/usr/src/app/videoprocess/emotionprocess/emotion_model.hdf5', compile=False)
+
+    for p in range(len(path_list)):
+        print("감정시작")
+        video = cv2.VideoCapture(path_list[p])
+        # path에서 비디오 추출
+        emotion1, emotion2, emotion3 = FER(video, face_cascade, emotion_classifier)
+        # 감정 분석 후 emotion1,2,3에다가 저장
+        print("asdasd")
+        highlight_target = Highlight.objects.get(video_index = target.video_index, highlight_index = p)
+        highlight_target.update(emotion_1 = emotion1)
+        highlight_target.update(emotion_2 = emotion2)
+        highlight_target.update(emotion_3 = emotion3)
+        print("감정중"+str(p)+"")
+        # mysql.update_emotion(8,i,emotion1,emotion2,emotion3)
+        # #video_index 8로 하이라이트번호를 1부터 highlight_max까지 각 감정을 추가
+    #all_concatenate(target,path_list)
 
 def video_process():
-    print("hihihi")
     target = Video.objects.order_by('-video_index')[0]
     print("-----")
     # 원본 영상 -> target
@@ -66,37 +94,8 @@ def video_process():
         cut_clip(target_path, starttime, endtime, save_path)
         # 자르기 수행 + 저장 수행
 
-        print("여기???")
-        print(path_list)
+    print("여기???")
+    print(path_list)
 
-
-
-def get_emotion():
-    # get emotion
-    face_cascade = cv2.CascadeClassifier(r'./emotionprocess/haarcascade_frontalface.xml')
-    emotion_classifier = load_model(r'./emotionprocess/emotion_model.hdf5', compile=False)
-
-    for p in range(len(path_list)):
-        video = cv2.VideoCapture(path_list[p])
-        # path에서 비디오 추출
-        emotion1, emotion2, emotion3 = FER(video, face_cascade)
-        # 감정 분석 후 emotion1,2,3에다가 저장
-        highlight_target = Highlight.objects.get(video_index = target, highlight_index = i)
-        highlight_target.emotion_1 = emotion1
-        highlight_target.emotion_2 = emotion2
-        highlight_target.emotion_3 = emotion3
-        highlight_target.save()
-        # mysql.update_emotion(8,i,emotion1,emotion2,emotion3)
-        # #video_index 8로 하이라이트번호를 1부터 highlight_max까지 각 감정을 추가
-
-
-def all_concatenate():
-    # concatenate
-    concatenate = concatenate_clip(path_list)
-
-    highlight_target.path = save_path
-    highlight_target.save()
-    # mysql.update_concatenate(8, save_path) 
-    # # video_index 8에 만들어진 비디오 경로 추가  
-    save_clip(save_path)
-    # 저장
+    get_emotion(target,path_list)
+video_process()
