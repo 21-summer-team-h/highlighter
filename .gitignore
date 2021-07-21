@@ -147,3 +147,4 @@ sql_info.py
 #동영상 파일
 v*.mp4
 v*.txt
+venv

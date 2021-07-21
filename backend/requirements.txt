@@ -21,20 +21,20 @@ moviepy == 1.0.2
 gunicorn
 django-cors-headers
 
-# 지옥의 문
-#opencv-contrib-python==4.5.2.52
 
-#h5py  == 3.1.0
-#Keras == 2.4.3
-#keras-nightly == 2.5.0.dev2021032900
-#Keras-Preprocessing == 1.1.2
+opencv-contrib-python==4.5.2.52
 
-# numpy == 1.19.5
+h5py  == 3.1.0
+Keras == 2.4.3
+keras-nightly == 2.5.0.dev2021032900
+Keras-Preprocessing == 1.1.2
 
-#scipy == 1.7.0
+numpy == 1.19.5
 
-#tensorflow == 2.5.0
-#tensorflow-estimator == 2.5.0
+scipy == 1.7.0
+
+tensorflow == 2.5.0
+tensorflow-estimator == 2.5.0
 
 # ----------------------------------
 

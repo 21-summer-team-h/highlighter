@@ -12,8 +12,8 @@ from moviepy.editor import *
 # # clip.write_videofile(path_write)
 
 def cut_clip(exist_path, start, end, save_path):
-    clip = VideoFileClip(path)
-    clip = clip.subclip(start, end)
+    clip = VideoFileClip(exist_path)
+    clip = clip.subclip(int(start), int(end))
     clip.write_videofile(save_path)
 
 # for i in range(1, highlight_max+1):

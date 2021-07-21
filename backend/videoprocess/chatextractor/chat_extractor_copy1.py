@@ -2,7 +2,7 @@
 from datetime import datetime, timedelta
 import pandas as pd
 
-from videoprocess.models import Video,Highlight
+from api.models import Video,Highlight
 from videoprocess.run import video_process
 
 def extract_time(text):
@@ -59,6 +59,7 @@ def selecthighlight(VIDEO_index):
           start = highlight["TIME"].iloc[i], end = str(tmp + timedelta(minutes=1))[11:]
           )
         new.save()
+    
     print("highlighting finished")
 
     video_process()

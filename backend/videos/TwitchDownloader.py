@@ -1,9 +1,10 @@
 import subprocess
 import os
-from videoprocess.models import Video
+from api.models import Video
 from videoprocess.chatextractor.chat_extractor_copy1 import selecthighlight
 
 def twitchDownload(VIDEO_ID):
+    # 현재 값이 아무것도 없으면 error 발생
     target = Video.objects.order_by('-video_index')[0]
 
     VIDEO_index = int(target.video_index) + 1         #추가할 비디오 인덱스
