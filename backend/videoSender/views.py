@@ -4,11 +4,11 @@ from django.shortcuts import render
 from django.core.files import File
 from django.http import HttpResponse
 from rest_framework.decorators import api_view
-from backend.settings import BASE_DIR, MEDIA_ROOT
+
 
 @api_view(['GET'])
-def DownloadVideo(self):
-    path_to_file = MEDIA_ROOT + '/sample-mp4-file.mp4'
+def DownloadVideo(request):
+    path_to_file = request.data.get('outputPath')
     f = open(path_to_file, 'rb')
     videoFile = File(f)
     response = HttpResponse(videoFile.read())
