@@ -14,8 +14,12 @@ import django.db
     #vo5.mp4
 def all_concatenate(target,path_list):
     # concatenate
-    final_path=target.final_path
+    print("합치기 시작")
+    final_path="/usr/src/app/videos/vo"+str(target.video_index)+".mp4"
     concatenate_clip(final_path,path_list)
+    print("합치기 끝")
+
+    # frontend로 final_path를 outputPath로 전해주고, 감정 분석 결과도 담아서 보내줘야 함
 
     # mysql.update_concatenate(8, save_path) 
     # # video_index 8에 만들어진 비디오 경로 추가  
@@ -41,7 +45,7 @@ def get_emotion(target,path_list):
         print("감정중"+str(p)+"")
         # mysql.update_emotion(8,i,emotion1,emotion2,emotion3)
         # #video_index 8로 하이라이트번호를 1부터 highlight_max까지 각 감정을 추가
-    #all_concatenate(target,path_list)
+    all_concatenate(target,path_list)
 
 def video_process():
     django.db.close_old_connections()
@@ -104,7 +108,9 @@ def video_process():
     print(path_list)
 
     get_emotion(target,path_list)
+
 # t = Video.objects.order_by('-video_index')[0]
 # pl = ['/usr/src/app/videos/v13-h0.mp4', '/usr/src/app/videos/v13-h1.mp4', '/usr/src/app/videos/v13-h2.mp4', '/usr/src/app/videos/v13-h3.mp4', '/usr/src/app/videos/v13-h4.mp4']
 
 # get_emotion(t, pl)
+video_process()
