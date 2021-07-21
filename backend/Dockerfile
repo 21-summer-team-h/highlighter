@@ -29,3 +29,5 @@ RUN pip install -r requirements.txt
 RUN chmod +x ./videos/TwitchDownloaderCLI
 
 RUN chmod +x ./videos/TwitchDownloader.sh
+
+RUN apt-get install libgl1-mesa-glx

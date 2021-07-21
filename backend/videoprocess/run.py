@@ -1,10 +1,10 @@
 import cv2
 from moviepy.editor import *
-from keras.preprocessing.image import img_to_array
-from keras.models import load_model
+from tensorflow.keras.preprocessing.image import img_to_array
+from tensorflow.keras.models import load_model
 
 from videoprocess.videoprocess.cut import cut_clip
-from emotionprocess.FEC import FER
+from videoprocess.emotionprocess.FEC import FER
 from videoprocess.videoprocess.concatenate import concatenate_clip, save_clip
 
 from api.models import Video, Highlight
