@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
 import './showResult.css';
 import axios from "axios";
-import { Row, Col } from 'antd';
 import imgFile from "../images/logo1.png";
 
 const ShowResult = () => {
     const [Video, setVideo] = useState([]);
 
     const emo=["Angry","Disgusting","Fearful", "Happy", "Sad", "Surpring", "Neutral"];   //0~6
-    const [Emotion1, setEmotion1] = useState("");
-    const [Emotion2, setEmotion2] = useState("");
-    const [Emotion3, setEmotion3] = useState("");
+    const [Emotion1, setEmotion1] = useState();
+    const [Emotion2, setEmotion2] = useState();
+    const [Emotion3, setEmotion3] = useState();
 
     useEffect(()=>{
         axios.get('/api/node/job-end')  //video 편집 완료 메세지
@@ -40,23 +39,20 @@ const ShowResult = () => {
 
 
     return(
-        <Row>
-            <Col lg={18} xs={24}>
-                <div id="mainbox">
+            <>
                 <img id="logo" src={imgFile}/>
 
                 {/* 완성 영상 재생시키기 */}
-                <video src={`http://localhost:3000/${Video.video}`} controls></video>
+                {/*<video id="show_video" src={`http://localhost:3000/${Video.video}`} controls></video>*/}
 
                 {/* 다운로드 버튼 구현 */}
-                <button class="downloadbutton" onclick={handleDownload}>다운로드</button>
+                <button id="download"class="downloadbutton" onclick={handleDownload}>다운로드</button>
 
                 {/* 태그 보여주기 */}
-                <p id="text1">#{Emotion1} #{Emotion2} #{Emotion3}</p>
+                <p id="tag">#{Emotion1} #{Emotion2} #{Emotion3}</p>
 
-                </div>
-            </Col>            
-        </Row>
+            </>
+
     )}
     
 export default ShowResult;
