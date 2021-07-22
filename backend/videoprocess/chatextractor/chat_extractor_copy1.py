@@ -47,9 +47,8 @@ def selecthighlight(VIDEO_index):
     #append까지 하려고 하니깐 len(df)는 너무 큰가 봐요..
     for i in range(len(df)) :
         df2=df2.append({'time':extract_time(str(df.iloc[i])), 'text':extract_text(str(df.iloc[i]))},ignore_index=True)
-    
     highlight=pd.DataFrame(df2['time'].value_counts().head(5).rename_axis("TIME").reset_index(name="COUNTS"))
-
+    highlight=highlight.sort_values(by=["TIME"], axis=0)
     for i in range(5):
         tmp = datetime.strptime(highlight["TIME"].iloc[i] + ":00", '%H:%M:%S')
         HIGHLIGHT_db_PATH="/usr/src/app/videos/v"+str(VIDEO_index)+"-h"+str(i)+".mp4"
