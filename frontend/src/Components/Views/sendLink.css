@@ -1,70 +1,168 @@
-#mainbox {
-    width: 500px;
-    height: 500px;
-    /*border: 2px solid black;*/
+body {
+    position: absolute;
+    width: 1440px;
+    height: 1024px;
+    background: #F7F7F7;
+    box-sizing: border-box;
+}
+
+#mainbox{
     position: relative;
-    top: 250px;
-    left: 500px;
+    width: 734px;
+    height: 632px;
+    left: 353px;
+    top: 204px;
+
+    background: #FFFCFC;
+    box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.25);
+}
+
+#line1{
+    position: relative;
+    width: 731px;
+    left: 0;
+    top: 85px;
+
+    border: 0.01px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+    transform: rotate(180deg);
+}
+
+#line2{
+    position: relative;
+    width: 542px;
+    right: 200px;
+    top: 348px;
+    border: 0.1px solid rgba(0, 0, 0, 0.1);
+    transform: rotate(-90deg);
+    filter: blur(0.1px);
+}
+
+#logo {
+    position: relative;
+    width: 149px;
+    float: left;
+    left: 10px;
+}
+
+.leftbar{
+    position: relative;
+    width: 138px;
+    height: 520px;
+    left: 20px;
+    top: 100px;
+    text-align: left;
+    font-family:'Times New Roman', Times, serif;
 
 }
- #logo {
-    display: block;
-    width: 150px;
-    height: 70px;
-    margin-bottom: 10px;
-    position: relative;
-    bottom: 60px;
- }
 
-.text1 {
-    display: block;
-    font-size: 2rem;
-    color: black;
-    font-family: Georgia;
-    font-weight: bold;
-    margin: 10px;
+.folder {
     position: relative;
-    float: left;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 150px;
+}
+
+#folderImg {
+    display: inline;
+    width: 20px;
+    height: 15px;
+    padding-right: 20px;
+}
+
+div#folder span {
+    padding: 10px;
+    padding-left: 20px;
+}
+
+div #open.folder{
+    position: relative;
+    background-color: #F7F7F7;
+    height: 15px;
+    width: 165px;
+    text-align: center;
+    right: 20px;
 }
 
 #linkForm {
+    position: absolute;
+    width: 899px;
+    height: 189px;
+    left: 270px;
+    top: 350px;
+
+    border: 6px black;
+    border-radius: 1px;
+    /* opacity: 0.8; */
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+#text {
     position: relative;
-    top: 70px;
-    right: 10px;
+    width: 395px;
+    height: 26px;
+    left: 183px;
+    bottom: 410px;
+
+    font-family:'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #000000;
+
 }
 
 #linkInputBox {
-    display: inline;
-    width: 300px;
-    height: 40px;
-    background-color: white;
-    
-    color: black;
-    font-family: Georgia;
-    margin: 20px 10px;
-    border: 5px black;
-    border-radius: 1px;
     position: relative;
-    right: 50px;
+    width: 440px;
+    height: 25px;
+    right: 205px;
+    bottom: 130px;
+    border: 3px solid black;
+    box-shadow: transparent;
+    background-color: white;
+}
+
+#linkInputBox:focus {
+    outline: none;
 }
 
 #submitButton {
-    display: inline;
-    height: 40px;
-    width: 60px;
-    color: black;
-    border: 5px black;
-    border-radius: 1px;
-    font-family: Georgia;
-    font-weight: bold;
     position: relative;
-    right: 30px;
+    width: 100px;
+    height: 30px;
+    right: 305px;
+    bottom: 5px;
+    font-family: Georgia;
+    font-weight: bold; 
+    text-align: center;
+    background-color: white;
+}
+
+.btn {
+    font-family: inherit;
+    border: 3px solid black;
+    margin-right: 2.6rem;
+    box-shadow: 0 0 0 black;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    box-shadow: 0.4rem 0.4rem 0 black;
+    transform: translate(-0.4rem, -0.4rem);
+}
+  
+.btn:active {
+    box-shadow: 0 0 0 black;
+    transform: translate(0, 0);
 }
 
 #progressStatus {
     position: absolute;
-    top: 350px;
-    left: 170px;
+    top: 400px;
+    left: 400px;
     height: 50px;
     width: 50px;
 }
@@ -72,17 +170,15 @@
 #getVideoButton {
     display: block;
     color: black;
-    border: 5px black;
-    border-radius: 1px;
     text-decoration: none;
+    background-color: white;
     text-align: center;
     font-family: Georgia;
     font-size: 15px;
     font-weight: bold;
-    position: absolute;
-    top: 370px;
-    left: 160px;
+    position: relative;
+    left: 570px;
+    bottom: 50px;
+    width: 100px;
     height: 30px;
-    width: 80px;
-
 }

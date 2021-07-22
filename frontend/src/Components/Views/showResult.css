@@ -1,20 +1,112 @@
+body {
+    position: absolute;
+    width: 1440px;
+    height: 1024px;
+    background: #F7F7F7;
+    box-sizing: border-box;
+}
 
+#mainbox{
+    position: relative;
+    width: 734px;
+    height: 632px;
+    left: 353px;
+    top: 204px;
+
+    background: #FFFCFC;
+    box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.25);
+}
+
+#line1{
+    position: relative;
+    width: 731px;
+    left: 0;
+    top: 85px;
+
+    border: 0.01px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+    transform: rotate(180deg);
+}
+
+#line2{
+    position: relative;
+    width: 542px;
+    right: 200px;
+    top: 348px;
+    border: 0.1px solid rgba(0, 0, 0, 0.1);
+    transform: rotate(-90deg);
+    filter: blur(0.1px);
+}
+
+#logo {
+    position: relative;
+    width: 149px;
+    float: left;
+    left: 10px;
+}
 
 /* tag */
 
-#tag{position: absolute;
-width: 542px;
-height: 58px;
-left: 583px;
-top: 608px;
+#tag {
+    position: absolute;
+    width: 542px;
+    height: 58px;
+    top: 400px;
+    left: 20px;
 
-font-family: Abhaya Libre SemiBold;
-font-style: normal;
-font-weight: 600;
-font-size: 18px;
-line-height: 21px;
+    font-family: Abhaya Libre SemiBold;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
 
-color: #000000;
+    color: #000000;
+}
+
+#videoBox {
+    width: 400px;
+    height: 250px;
+    border: 0.01px solid;
+    position: relative;
+    left: 250px;
+    top: 100px;
+}
+#downloadButton {
+    position: relative;
+    width: 100px;
+    height: 30px;
+    left: 250px;
+    top: 250px;
+    font-family: Georgia;
+    font-weight: bold; 
+    text-align: center;
+    background-color: white;
+}
+
+.btn {
+    font-family: inherit;
+    border: 3px solid black;
+    margin-right: 2.6rem;
+    box-shadow: 0 0 0 black;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    box-shadow: 0.4rem 0.4rem 0 black;
+    transform: translate(-0.4rem, -0.4rem);
+}
+  
+.btn:active {
+    box-shadow: 0 0 0 black;
+    transform: translate(0, 0);
+}
+
+#progressStatus {
+    position: absolute;
+    top: 400px;
+    left: 400px;
+    height: 50px;
+    width: 50px;
 }
 
 

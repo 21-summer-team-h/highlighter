@@ -3,10 +3,10 @@ import Loader from "react-loader-spinner";
 export default function Loading () {
     return (
         <Loader
-            type="ThreeDots"
+            type="Oval"
             color="black"
-            height={50}
-            width={70}
+            height={45}
+            width={45}
         />
     )
 }

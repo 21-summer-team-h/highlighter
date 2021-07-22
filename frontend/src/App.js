@@ -2,7 +2,7 @@ import React from "react";
 import './App.css';
 import { BrowserRouter, Route } from "react-router-dom";
 import SendLink from './Components/Views/sendLink';
-import Result from './Components/Views/showResult';
+import ShowResult from './Components/Views/showResult';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Route exact path = "/" component = { SendLink }></Route>
 		{/* result로 page mapping */}
-        <Route exact path = "/result" component = { Result }></Route>
+        <Route exact path = "/result" component = { ShowResult }></Route>
       </BrowserRouter>
     </div>
   );
