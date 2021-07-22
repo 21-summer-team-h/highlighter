@@ -55,7 +55,7 @@ const SendLink = () => {
                     }
                     else {
                         alert("Wait for video!");
-                        setVideoIndex(response.data.videoindex); /* 정하신 대로 수정해주세요 */
+                        setVideoIndex(response.data.returnTwitchDownload); 
                         waitForVideo()
                     }
                 })

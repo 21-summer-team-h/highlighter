@@ -17,10 +17,10 @@ from django.http import HttpResponse
 
 @api_view(['POST'])
 def download(request) :
-    videoID = str(request.data.get('videoID'))      #vidoeID = 트위치영상 아이디
-    returnTwichDownload = twitchDownload(videoID)
-    if returnTwichDownload != 0 :
-        return Response(data=returnTwichDownload)
+    videoID = str(request.data.get('videoID'))      #videoID = 트위치영상 아이디
+    returnTwitchDownload = twitchDownload(videoID)
+    if returnTwitchDownload != 0 :
+        return Response(data=returnTwitchDownload)
     else :
         return Response(data="No video")
 
