@@ -4,14 +4,16 @@ import './sendLink.css';
 import axios from "axios";
 import ValidateLink from './validateLink';
 import Loading from './loading';
-import imgFile from '../images/logo1.png';
+import logoImg from '../images/logo.png';
+import folderImg from '../images/folder.png';
 
 const SendLink = () => {
     const [videoLink, setVideoLink] = useState("");
     const [linkError, setLinkError] = useState(null);
     const [submitting, setSubmitting] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [showButton, setShowButton] = useState(false);
+    const [showButton, setShowButton] = useState(true);
+    const [videoIndex, setVideoIndex] = useState(null);
 
     const handleInputChange = (event) => {
         setVideoLink(event.target.value);
@@ -19,7 +21,6 @@ const SendLink = () => {
 
     /* 다운로드 종료 후 실행된다.*/
     const waitForVideo = () => {
-        setLoading(true);
         axios.get('/api/edit/')
 		    /* 다운로드 종료 후, response 받아 페이지 이동하는 버튼 보여준다. */
             .then(response => {
@@ -28,12 +29,13 @@ const SendLink = () => {
                 setShowButton(true);
             })
             .catch(error => {
-                alert("Failed to edit video")
+                alert("Failed to edit video");
             })
     }
 
     const handleSubmit = (event) => {
         setSubmitting(true);
+        setLoading(true);
         event.preventDefault();
 
         // 유효성을 검사한다.
@@ -48,12 +50,13 @@ const SendLink = () => {
             console.log(videoID);
             axios.post('/api/download/', { videoID : videoID })
                 .then(response => {
-                    if (response.data == "Downloaded") {
-                        alert("Wait for video!");
-                        //waitForVideo()
+                    if (response.data == 0) {
+                        alert("Fail");
                     }
                     else {
-                        alert("Invalid video ID");
+                        alert("Wait for video!");
+                        setVideoIndex(response.data.videoindex); /* 정하신 대로 수정해주세요 */
+                        waitForVideo()
                     }
                 })
                 .catch(error => {
@@ -67,10 +70,17 @@ const SendLink = () => {
     return (
         <>
         <div id="mainbox">
-            <img id="logo" src={ imgFile }/>
-            <p class="text1">Edit highlight moments</p>
-            <p class="text1">from twitch</p>
-            <br/>
+            <hr id="line1"></hr>
+            <hr id="line2"></hr>
+            <img id="logo" src={ logoImg }/>
+            <div class="leftbar">
+                <div class="folder"><img id = "folderImg" src={ folderImg }/><span>Uploads</span></div>
+                <div class="folder"><img id = "folderImg" src={ folderImg }/><span>Broadcast</span></div>
+                <div class="folder"><img id = "folderImg" src={ folderImg }/><span>Shares</span></div>
+                <div class="folder"><img id = "folderImg" src={ folderImg }/><span>Highlighter</span></div>
+                <div class="folder" id="open"><img id = "folderImg" src={ folderImg }/><span>Edit</span></div>
+            </div>
+            <p id="text">Get 10-minute highlights from twitch</p>
             <form onSubmit={ handleSubmit } id="linkForm">
                 <input
                     type="text"
@@ -78,11 +88,15 @@ const SendLink = () => {
                     placeholder="Twitch Link"
                     onChange={ handleInputChange }>
                 </input>
-                <button type="submit" id="submitButton" submitting="submitting">Edit</button>
+                <button type="submit" id="submitButton" class="btn" submitting="submitting">GO</button>
             </form>
             <div id="progressStatus">{loading? <Loading/> : ""}</div>
             {/* 작업 종료 후, page 4로 이동할 수 있는 버튼을 보여준다. */}
-            {showButton ? <Link to="/result" id="getVideoButton">Get video</Link> : ""}
+            {showButton ?
+                <Link to= {{
+                    pathname: "/result",
+                    // state: { videoIndex : { videoIndex }}
+                }}><button class="btn" id="getVideoButton">Get video</button></Link> : ""}
         </div>
         </>
     )
