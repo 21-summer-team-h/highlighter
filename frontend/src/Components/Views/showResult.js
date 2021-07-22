@@ -9,8 +9,9 @@ const ShowResult = (props) => {
     const [Video, setVideo] = useState([]);
     const [videoIndex, setVideoIndex] = useState(null);
 
-    // setVideoIndex(props.location.state.videoIndex);
-    // console.log(videoIndex);
+    useEffect(()=>{
+        setVideoIndex(props.location.state.videoIndex);
+    })
 
     const emo=["Angry","Disgusting","Fearful", "Happy", "Sad", "Surpring", "Neutral"];   //0~6
     const [Emotion1, setEmotion1] = useState();

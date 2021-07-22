@@ -12,7 +12,7 @@ const SendLink = () => {
     const [linkError, setLinkError] = useState(null);
     const [submitting, setSubmitting] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [showButton, setShowButton] = useState(true);
+    const [showButton, setShowButton] = useState(false);
     const [videoIndex, setVideoIndex] = useState(null);
 
     const handleInputChange = (event) => {
@@ -95,7 +95,7 @@ const SendLink = () => {
             {showButton ?
                 <Link to= {{
                     pathname: "/result",
-                    // state: { videoIndex : { videoIndex }}
+                    state: { videoIndex : { videoIndex }}
                 }}><button class="btn" id="getVideoButton">Get video</button></Link> : ""}
         </div>
         </>
