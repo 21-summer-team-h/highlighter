@@ -3,5 +3,7 @@ from . import views
 
 urlpatterns = [
     path('api/download/', views.download),
-    path('api/edit/', views.edit)
+    path('api/edit/', views.edit),
+    path('api/getEmotion/', views.getEmotion),
+    path('api/getVideo/', views.getVideo)
 ]
