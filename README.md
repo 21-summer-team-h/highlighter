@@ -32,7 +32,8 @@
 ---
 
 ## ERD
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ced1bbd9-759b-4d9d-b6d1-5e53cff43037/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ced1bbd9-759b-4d9d-b6d1-5e53cff43037/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/55067949/126609846-e5740927-a3d2-4272-9830-6b9959bb7178.png)
+
 
 ## Team Member
 
