@@ -62,7 +62,8 @@ def selecthighlight(VIDEO_index):
     
     print("highlighting finished")
 
-    video_process()
+    print(VIDEO_index)
+    video_process(VIDEO_index)
 
     print("video_process finished")
 

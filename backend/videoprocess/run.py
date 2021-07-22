@@ -102,9 +102,12 @@ def cut(target):
     return path_list
 
         
-def video_process():
+def video_process(VIDEO_index):
     django.db.close_old_connections()
-    target = Video.objects.order_by('-video_index')[0]
+    target = Video.objects.get(video_index = VIDEO_index)
+    print(target)
+    print(VIDEO_index)
+    # target = Video.objects.order_by('-video_index')[0]
     print("-----")
     # 원본 영상 -> target
     

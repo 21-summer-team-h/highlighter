@@ -1,7 +1,6 @@
 from django.db import models
 from django.db import connections
 
-
 class Video(models.Model):
     video_index = models.AutoField(primary_key=True)
     video_path = models.CharField(max_length=100, blank=True, null=True)
