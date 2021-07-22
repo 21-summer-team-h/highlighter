@@ -12,8 +12,9 @@ from pathlib import Path
 @api_view(['POST'])
 def download(request) :
     videoID = str(request.data.get('videoID'))      #vidoeID = 트위치영상 아이디
-    if twitchDownload(videoID) == True :
-        return Response(data="Downloaded")
+    returnTwichDownload = twitchDownload(videoID)
+    if returnTwichDownload != 0 :
+        return Response(data=returnTwichDownload)
     else :
         return Response(data="No video")
 

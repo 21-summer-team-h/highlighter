@@ -1,3 +1,4 @@
+from django.urls.conf import path
 import cv2
 from moviepy.editor import *
 from tensorflow.keras.preprocessing.image import img_to_array
@@ -28,12 +29,13 @@ def get_emotion(target,path_list):
     # get emotion
     face_cascade = cv2.CascadeClassifier('/usr/src/app/videoprocess/emotionprocess/haarcascade_frontalface.xml')
     emotion_classifier = load_model('/usr/src/app/videoprocess/emotionprocess/emotion_model.hdf5', compile=False)
-
+    emotionlist = list()
     for p in range(len(path_list)):
         print("감정시작")
         video = cv2.VideoCapture(path_list[p])
         # path에서 비디오 추출
         emotion1, emotion2, emotion3 = FER(video, face_cascade, emotion_classifier)
+        emotionlist.append(emotion1)
         # 감정 분석 후 emotion1,2,3에다가 저장
         print("asdasd")
         django.db.close_old_connections()
@@ -46,12 +48,9 @@ def get_emotion(target,path_list):
         # mysql.update_emotion(8,i,emotion1,emotion2,emotion3)
         # #video_index 8로 하이라이트번호를 1부터 highlight_max까지 각 감정을 추가
     all_concatenate(target,path_list)
+    return emotionlist
 
-def video_process():
-    django.db.close_old_connections()
-    target = Video.objects.order_by('-video_index')[0]
-    print("-----")
-    # 원본 영상 -> target
+def cut(target):
     target_number = target.video_index
     print(target_number)
     # target 영상의 video index
@@ -60,10 +59,6 @@ def video_process():
     print(type(target_count))
     # target 영상이 가지고 있는 highlight의 갯수
     target_path = target.video_path
-    # target 영상 경로
-
-    print("hi")
-
     path_list = []
     # 하이라이트 영상 path list
 
@@ -102,15 +97,26 @@ def video_process():
         django.db.close_old_connections()
 
         cut_clip(target_path, starttime, endtime, save_path)
-        # 자르기 수행 + 저장 수행
-
     print("여기???")
     print(path_list)
+    return path_list
 
-    get_emotion(target,path_list)
+        
+def video_process():
+    django.db.close_old_connections()
+    target = Video.objects.order_by('-video_index')[0]
+    print("-----")
+    # 원본 영상 -> target
+    
+    # target 영상 경로
 
+    path_list=cut(target)       # 자르기 수행 + 저장 수행
+    print(path_list)
+    emotionlist = get_emotion(target,path_list)
+    print(emotionlist)
+    all_concatenate(target,path_list)
 # t = Video.objects.order_by('-video_index')[0]
 # pl = ['/usr/src/app/videos/v13-h0.mp4', '/usr/src/app/videos/v13-h1.mp4', '/usr/src/app/videos/v13-h2.mp4', '/usr/src/app/videos/v13-h3.mp4', '/usr/src/app/videos/v13-h4.mp4']
 
 # get_emotion(t, pl)
-video_process()
+#video_process()

@@ -31,7 +31,7 @@ def twitchDownload(VIDEO_ID):
     selecthighlight(VIDEO_index)
 
     if str(remp4.returncode) == '0' and  str(retxt.returncode) == '0':
-        return True
+        return VIDEO_index
     else:
-        return False
+        return 0
         
