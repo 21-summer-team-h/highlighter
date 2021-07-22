@@ -47,7 +47,6 @@ def get_emotion(target,path_list):
         print("감정중"+str(p)+"")
         # mysql.update_emotion(8,i,emotion1,emotion2,emotion3)
         # #video_index 8로 하이라이트번호를 1부터 highlight_max까지 각 감정을 추가
-    all_concatenate(target,path_list)
     return emotionlist
 
 def cut(target):
@@ -122,4 +121,4 @@ def video_process(VIDEO_index):
 # pl = ['/usr/src/app/videos/v13-h0.mp4', '/usr/src/app/videos/v13-h1.mp4', '/usr/src/app/videos/v13-h2.mp4', '/usr/src/app/videos/v13-h3.mp4', '/usr/src/app/videos/v13-h4.mp4']
 
 # get_emotion(t, pl)
-#video_process()
+#video_process(18)
