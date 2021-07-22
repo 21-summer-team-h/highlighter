@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Link } from "react-router-dom";
 import './sendLink.css';
+import './frame.css'
 import axios from "axios";
 import ValidateLink from './validateLink';
 import Loading from './loading';
