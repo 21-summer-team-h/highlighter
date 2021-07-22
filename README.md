@@ -10,12 +10,13 @@
 
 #### RUN: `docker-compose up`
 #### [API Specification](https://github.com/21-summer-team-h/highlighter/wiki)
+#### [Notion Design Docs](https://www.notion.so/Team-H-Docs-f162f52cb49c486f9a1b97cf17767a3a)
 
 ## Key Feature (POC)
 
 #### 편집점 분석 및 하이라이트 구간 추출
 
-> 해당 영상의 댓글을 분석하여 편집점을 인식한다. 
+> 해당 영상의 댓글을 분석하여 편집점을 인식하여 하이라이트 영상을 만든 뒤, 사용자가 하이라이트 영상을 다운로드할 수 있게 한다.
 
 #### 하이라이트 영상 감정 추출 태깅
 
@@ -26,9 +27,12 @@
 ![architecture](https://user-images.githubusercontent.com/69420512/126595031-daf7ed91-e70e-458c-a7fd-5806d8afa7c4.png)
 
 ## Open Source <br />
-- [Twitch Video & Text Downloader](https://github.com/lay295/TwitchDownloader)
+- [Twitch Video & Text Downloader](https://github.com/lay295/TwitchDownloader) - MIT License
 
 ---
+
+## ERD
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ced1bbd9-759b-4d9d-b6d1-5e53cff43037/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ced1bbd9-759b-4d9d-b6d1-5e53cff43037/Untitled.png)
 
 ## Team Member
 
