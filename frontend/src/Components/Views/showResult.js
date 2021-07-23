@@ -21,6 +21,7 @@ const ShowResult = (props) => {
     const [Emotion5, setEmotion5] = useState();
 
     useEffect(()=>{
+        console.log(videoIndex);
         // axios.get('/api/node/job-end') //video 편집 완료 메세지
         // .then(response => {          
         //         setVideo(response.data.video);                      
@@ -29,7 +30,7 @@ const ShowResult = (props) => {
         //     console.log(error)
         // })
 
-        axios.get('/api/getEmotion/', {
+        axios.post('/api/getEmotion/', {
             video_index : videoIndex
         })   //backend에게 emotion요청
         .then(response => {
@@ -48,7 +49,7 @@ const ShowResult = (props) => {
     var fileDownload = require('js-file-download');
 
     const handleDownload = () => {
-        axios.get("/api/getVideo/",{
+        axios.post("/api/getVideo/",{
             video_index: videoIndex,
             responseType:'blob'
         }).then(res => {
