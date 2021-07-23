@@ -35,18 +35,20 @@ const ShowResult = (props) => {
 
     var fileDownload = require('js-file-download');
 
-    const handleDownload = () => {
+    const handleDownload = (e) => {
+        e.preventDefault();
+        alert("hi");
+
         axios.post("/api/getVideo/",{
             video_index: videoIndex,
             responseType:'blob'
         }).then(res => {
             fileDownload(res.data,'highlight.mp4')
-            console.log(res)
+            // console.log(res)
         }).catch(error=>{
             console.log(error)
         })
     }
-
 
     return (
         <>
@@ -61,7 +63,10 @@ const ShowResult = (props) => {
 
             <div id="videoBox"></div>
             {/* 다운로드 버튼 구현 */}
-            <button id="downloadButton" class="btn"  onclick={ handleDownload }>Download</button>
+
+            <form onSubmit = { handleDownload }>
+                <button type="submit" id="downloadButton" class="btn">Download</button>
+            </form>
 
             {/* 태그 보여주기 */}
             <p id="tag">#{Emotion1} #{Emotion2} #{Emotion3} #{Emotion4} #{Emotion5}</p> 
