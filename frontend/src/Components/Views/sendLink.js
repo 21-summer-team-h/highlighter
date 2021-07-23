@@ -13,26 +13,26 @@ const SendLink = () => {
     const [submitting, setSubmitting] = useState(false);
     const [loading, setLoading] = useState(false);
     const [showButton, setShowButton] = useState(false);
-    const [videoIndex, setVideoIndex] = useState(null);
+    const [videoIndex, setVideoIndex] = useState();
 
     const handleInputChange = (event) => {
         setVideoLink(event.target.value);
     }
 
-    /* 다운로드 종료 후 실행된다.*/
-    const waitForVideo = () => {
-        axios.get('/api/edit/')
-		    /* 다운로드 종료 후, response 받아 페이지 이동하는 버튼 보여준다. */
-            .then(response => {
-                setLoading(false);
-                alert("Video edited!");
-                setShowButton(true);
-            })
-            .catch(error => {
-                setLoading(false);
-                alert("Failed to edit video");
-            })
-    }
+    // /* 다운로드 종료 후 실행된다. */
+    // const waitForVideo = () => {
+    //     axios.get('/api/edit/')
+	// 	    /* 다운로드 종료 후, response 받아 페이지 이동하는 버튼 보여준다. */
+    //         .then(response => {
+    //             setLoading(false);
+    //             alert("Video edited!");
+    //             setShowButton(true);
+    //         })
+    //         .catch(error => {
+    //             setLoading(false);
+    //             alert("Failed to edit video");
+    //         })
+    // }
 
     const handleSubmit = (event) => {
         setSubmitting(true);
@@ -58,7 +58,7 @@ const SendLink = () => {
                     }
                     else {
                         //alert("Wait for video!");
-                        setVideoIndex(response.data.returnTwitchDownload); 
+                        setVideoIndex(response.data.returnTwitchDownload);
                         //waitForVideo()
                         setLoading(false);
                         //alert("Video edited!");
@@ -102,7 +102,7 @@ const SendLink = () => {
             {showButton ?
                 <Link to= {{
                     pathname: "/result",
-                    state: { videoIndex : { videoIndex }}
+                    state: { videoIndex : videoIndex }
                 }}
                 style={{ textDecoration: 'none' }}>
                 <button class="btn" id="getVideoButton" >Get video</button>

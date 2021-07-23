@@ -7,12 +7,12 @@ import logoImg from "../images/logo.png";
 
 const ShowResult = (props) => {
     const [Video, setVideo] = useState([]);
-    const [videoIndex, setVideoIndex] = useState(null);
+    const [videoIndex, setVideoIndex] = useState();
 
     useEffect(()=>{
         setVideoIndex(props.location.state.videoIndex);
-    })
-
+    }, [])
+    
     const emo=["Angry","Disgusting","Fearful", "Happy", "Sad", "Surpring", "Neutral"];   //0~6
     const [Emotion1, setEmotion1] = useState();
     const [Emotion2, setEmotion2] = useState();
@@ -30,10 +30,10 @@ const ShowResult = (props) => {
         // })
 
         axios.get('/api/getEmotion/', {
-            video_index: videoIndex
+            video_index : videoIndex
         })   //backend에게 emotion요청
         .then(response => {
-            emotion_list = response.data.emotion_list;
+            let emotion_list = response.data.emotion_list;
             setEmotion1(emo[emotion_list[0]]);    //0~6사이 숫자 형태로 받아옴
             setEmotion2(emo[emotion_list[1]]);    
             setEmotion3(emo[emotion_list[2]]);   
@@ -42,7 +42,7 @@ const ShowResult = (props) => {
         })
         .catch(error=>{
             console.log(error)
-        })
+        }, [])
     })
 
     var fileDownload = require('js-file-download');
