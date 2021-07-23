@@ -49,11 +49,10 @@ body {
 
 #tag {
     position: absolute;
-    width: 542px;
+    width: 300px;
     height: 58px;
     top: 400px;
-    left: 20px;
-
+    left: 235px;
     font-family: Abhaya Libre SemiBold;
     font-style: normal;
     font-weight: 600;
@@ -64,18 +63,21 @@ body {
 }
 
 #videoBox {
-    width: 400px;
+    width: 430px;
     height: 250px;
     border: 0.01px solid;
     position: relative;
-    left: 250px;
+    left: 235px;
     top: 100px;
+    border: 0;
+    background: #FFFBFB;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 #downloadButton {
     position: relative;
     width: 100px;
     height: 30px;
-    left: 250px;
+    left: 270px;
     top: 250px;
     font-family: Georgia;
     font-weight: bold; 
