@@ -16,28 +16,9 @@ const SendLink = () => {
     const [showGo, setShowGo] = useState(true);
     const [videoIndex, setVideoIndex] = useState();
 
-    useEffect(()=> {
-        setVideoIndex(65);
-    },[]);
-
     const handleInputChange = (event) => {
         setVideoLink(event.target.value);
     }
-
-    // /* 다운로드 종료 후 실행된다. */
-    // const waitForVideo = () => {
-    //     axios.get('/api/edit/')
-	// 	    /* 다운로드 종료 후, response 받아 페이지 이동하는 버튼 보여준다. */
-    //         .then(response => {
-    //             setLoading(false);
-    //             alert("Video edited!");
-    //             setShowButton(true);
-    //         })
-    //         .catch(error => {
-    //             setLoading(false);
-    //             alert("Failed to edit video");
-    //         })
-    // }
 
     const handleSubmit = (event) => {
         setSubmitting(true);
@@ -65,11 +46,9 @@ const SendLink = () => {
                         alert("Fail");
                     }
                     else {
-                        //alert("Wait for video!");
-                        setVideoIndex(response.data.returnTwitchDownload);
-                        //waitForVideo()
+                        alert("Wait for video!");
+                        setVideoIndex(response.data);
                         setLoading(false);
-                        //alert("Video edited!");
                         setShowButton(true);
                     }
                 })
