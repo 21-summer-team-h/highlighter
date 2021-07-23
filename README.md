@@ -20,10 +20,11 @@ If you use Highlighter, you can get a bundle-of highlight video easily
 
 ## Getting started
 ### local
-`git clone https://github.com/21-summer-team-h/highlighter.git` <br >
-`cd highlighter` <br>
-`docker-compose up` <br>
-
+```bat
+git clone https://github.com/21-summer-team-h/highlighter.git
+cd highlighter
+docker-compose up
+```
 now you can access to localhost in your browser! <br>
 
 
@@ -40,6 +41,7 @@ now you can access to localhost in your browser! <br>
 ### Open Source <br />
 - [Twitch Video & Text Downloader](https://github.com/lay295/TwitchDownloader) - MIT License
 - [Emotion recognition](https://github.com/omar178/Emotion-recognition) - MIT License
+- [moviepy](https://github.com/Zulko/moviepy) - MIT License
 
 
 ### [API Specification](https://github.com/21-summer-team-h/highlighter/wiki)
