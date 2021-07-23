@@ -24,15 +24,13 @@
 
 
 ## Architecture
-![architecture](https://user-images.githubusercontent.com/69420512/126595031-daf7ed91-e70e-458c-a7fd-5806d8afa7c4.png)
+- ![ds](https://user-images.githubusercontent.com/55067949/126734280-115ae6db-4f02-4b3f-ac57-a6575964d581.PNG)
 
 ## Open Source <br />
 - [Twitch Video & Text Downloader](https://github.com/lay295/TwitchDownloader) - MIT License
 
 ---
 
-## ERD
-![Untitled](https://user-images.githubusercontent.com/55067949/126609846-e5740927-a3d2-4272-9830-6b9959bb7178.png)
 
 
 ## Team Member
