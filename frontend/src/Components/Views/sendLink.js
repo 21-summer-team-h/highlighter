@@ -50,7 +50,7 @@ const SendLink = () => {
             console.log(videoID);
             axios.post('/api/download/', { videoID : videoID })
                 .then(response => {
-                    if (response.data == 0) {
+                    if (response.data == "No video") {
                         alert("Fail");
                     }
                     else {
