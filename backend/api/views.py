@@ -25,10 +25,10 @@ def download(request) :
         return Response(data="No video")
 
 
-@api_view(['GET'])
-def edit(request) :
-    if True :
-        return Response(status=status.HTTP_200_OK)
+# @api_view(['GET'])
+# def edit(request) :
+#     if True :
+#         return Response(status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])
