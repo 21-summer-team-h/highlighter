@@ -54,9 +54,12 @@ const SendLink = () => {
                         alert("Fail");
                     }
                     else {
-                        alert("Wait for video!");
+                        //alert("Wait for video!");
                         setVideoIndex(response.data.returnTwitchDownload); 
-                        waitForVideo()
+                        //waitForVideo()
+                        setLoading(false);
+                        //alert("Video edited!");
+                        setShowButton(true);
                     }
                 })
                 .catch(error => {

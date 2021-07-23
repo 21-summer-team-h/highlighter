@@ -21,13 +21,13 @@ const ShowResult = (props) => {
     const [Emotion5, setEmotion5] = useState();
 
     useEffect(()=>{
-        axios.get('/api/node/job-end') //video 편집 완료 메세지
-        .then(response => {          
-                setVideo(response.data.video);                      
-        })
-        .catch(error =>{
-            console.log(error)
-        })
+        // axios.get('/api/node/job-end') //video 편집 완료 메세지
+        // .then(response => {          
+        //         setVideo(response.data.video);                      
+        // })
+        // .catch(error =>{
+        //     console.log(error)
+        // })
 
         axios.get('/api/getEmotion/')   //backend에게 emotion요청
         .then(response => {
@@ -69,7 +69,7 @@ const ShowResult = (props) => {
 
             <div id="videoBox"></div>
             {/* 다운로드 버튼 구현 */}
-            <button id="downloadButton" class="btn" /* onclick={ handleDownload } */ >Download</button>
+            <button id="downloadButton" class="btn"  onclick={ handleDownload }  >Download</button>
 
             {/* 태그 보여주기 */}
             <p id="tag">#{Emotion1} #{Emotion2} #{Emotion3} #{Emotion4} #{Emotion5}</p> 
