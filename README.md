@@ -6,7 +6,7 @@
 >
 > 2021.06.28 ~ 2021.07.30
 >
-> Developer: [@JerryK026](https://github.com/JerryK026) [@rlawogns](https://github.com/rlawogns) [@m0oon0](https://github.com/m0oon0) [newave986](https://github.com/newave986) [@cje1903](https://github.com/cje1903)
+> Developer: [@JerryK026](https://github.com/JerryK026) [@rlawogns](https://github.com/rlawogns) [@m0oon0](https://github.com/m0oon0) [@newave986](https://github.com/newave986) [@cje1903](https://github.com/cje1903)
 
 #### RUN: `docker-compose up`
 #### [API Specification](https://github.com/21-summer-team-h/highlighter/wiki)
@@ -37,6 +37,6 @@
 
 ## Team Member
 
-|김서경 Seokyung Kim)|김재훈 Jaehun.Kim|문서인 Sooin Moon|장예서 Yeseo Jang|채지은|
+|김서경 Seokyung Kim|김재훈 Jaehun Kim|문수인 Sooin Moon|장예서 Yeseo Jang|채지은 Chae Jieun|
 |:---:|:---:|:---:|:---:|:---:|
 ||||||
