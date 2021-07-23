@@ -82,21 +82,12 @@ def cut(target):
         하이라이트 영상 : v$(video_index)-h$(highlight_index) ex)v5-h1.mp4
         완성된 영상 : vo$(video_index) ex) vo5.mp4
         """
-        print(start)
-        print(type(start))
-        print(end)
-        print(type(end))
-        print("starttime")
-        print(str(start))
         starttime=(int(str(start)[0:2])*3600 + int(str(start)[3:5])*60 + int(str(start)[6:8]))
-        print(starttime)
         endtime=(int(str(end)[0:2])*3600 + int(str(end)[3:5])*60 + int(str(end)[6:8]))
-        print(endtime)
         print(path_list)
         django.db.close_old_connections()
 
         cut_clip(target_path, starttime, endtime, save_path)
-    print("여기???")
     print(path_list)
     return path_list
 
@@ -116,6 +107,29 @@ def video_process(VIDEO_index):
     print(path_list)
     emotionlist = get_emotion(target,path_list)
     print(emotionlist)
+
+    """
+    1. emotion list 넘겨 주는 코드 필요
+    """
+
+    """
+    2. front에서 사용자가 입력한 clip number 받는 코드 필요
+    clip_number = []
+    """
+
+    """
+    3. 받은 다음 그거에 대해서만 합치기 코드
+    clip_path = []
+    for c in clip_number:
+        clip_path.append(path_list[c-1])
+        # 1, 2, 3, 4, 5로 받아오면 c-1로 입력해야지
+    all_concatenate(target, clip_path)
+    """
+
+    """
+    4. emotion도 clip_number에 해당하는 것만 추출해서 보내 주기
+    """
+
     all_concatenate(target,path_list)
 # t = Video.objects.order_by('-video_index')[0]
 # pl = ['/usr/src/app/videos/v13-h0.mp4', '/usr/src/app/videos/v13-h1.mp4', '/usr/src/app/videos/v13-h2.mp4', '/usr/src/app/videos/v13-h3.mp4', '/usr/src/app/videos/v13-h4.mp4']
