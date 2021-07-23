@@ -23,15 +23,19 @@ def twitchDownload(VIDEO_ID):
     subprocess.run(["echo", "ffmpegcomplete"])
     remp4 = subprocess.run(["/usr/src/app/videos/TwitchDownloaderCLI", "-m", "VideoDownload", "--id", VIDEO_ID, "-o", VIDEO_mp4_PATH])
     subprocess.run(["echo", "mp4complete"])
+    if str(remp4.returncode) != '0':
+        #디비 삭제 코드 넣기
+        return 0
+    
     retxt = subprocess.run(["/usr/src/app/videos/TwitchDownloaderCLI", "-m", "ChatDownload", "--id", VIDEO_ID, "--timestamp-format", "Relative", "-o", VIDEO_txt_PATH])
     subprocess.run(["echo", "txtcomplete"])
+    if str(retxt.returncode) != '0':
+        #디비 삭제 코드 넣기
+        return 0
 
     # highlight 수집
     django.db.close_old_connections()
     selecthighlight(VIDEO_index)
 
-    if str(remp4.returncode) == '0' and  str(retxt.returncode) == '0':
-        return VIDEO_index
-    else:
-        return 0
+    return VIDEO_index
         
