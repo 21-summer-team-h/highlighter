@@ -1,9 +1,13 @@
 # 📼 Highlighter
 
-### 트위치 영상의 하이라이트를 뽑아 나만의 하이라이트 동영상을 만들자!
+### Make Your Own Highlight Video Easily by Picking Up the Highlight Part of Your Twitch Video
 
-If you use Highlighter, you can get a bundle-of highlight video easily
 
+> Highlighter is our web application project that helps you make a single highlight video by pulling out the five hottest clips from your video.
+
+- **Analysis-Based**: We analysis chats and emotions of video. Highlight extraction is done by analyzing video comments. We use AI model to show you about emotions of each clip, so you can understand the video more easily and choose according to your preference.
+- **Easy Select for Personalization**: You can pick up your favorite several clips and make highlight video with them. Emotion tags of each video would help you.
+- **Just Link, Click, and Get Highlight Video!**: Link your twitch video, click to choose favorite clips, and get the final video. These are all we want from you to provide the best highlight video for you.
 ---
 ## Display flow
 
@@ -18,7 +22,7 @@ If you use Highlighter, you can get a bundle-of highlight video easily
 
 ---
 
-## Getting started
+## Getting Started
 ### local
 ```bat
 git clone https://github.com/21-summer-team-h/highlighter.git
@@ -30,12 +34,12 @@ now you can access to localhost in your browser! <br>
 
 ---
 
-## process
+## Process
 ![process](https://user-images.githubusercontent.com/55067949/126746873-85131f1e-19e1-476b-a76f-ae4612c17991.jpg)
 
 ---
 
-## references
+## References
 
 
 ### Open Source <br />
