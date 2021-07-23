@@ -54,3 +54,13 @@ def getVideo(request) :
     response = HttpResponse(videoFile.read())
     response['Content-Disposition'] = 'attachment';
     return response
+
+# 사용자가 입력한 clip 번호 받기
+@api_view(['POST'])
+def getNums(request) :
+    clipNum = list(request.data.get('clipNum'))
+    returnSelectCat = select_concatenate(clipNum)
+    if returnSelectCat != 0 :
+            return Response(data=returnSelectCat)
+    else :
+        return Response(data="Error")
