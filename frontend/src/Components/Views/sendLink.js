@@ -29,6 +29,7 @@ const SendLink = () => {
                 setShowButton(true);
             })
             .catch(error => {
+                setLoading(false);
                 alert("Failed to edit video");
             })
     }
@@ -41,6 +42,7 @@ const SendLink = () => {
         // 유효성을 검사한다.
         let errorMsg = ValidateLink(videoLink);
         if ( errorMsg != ""){
+            setLoading(false);
             alert(errorMsg);
         }
 
@@ -51,6 +53,7 @@ const SendLink = () => {
             axios.post('/api/download/', { videoID : videoID })
                 .then(response => {
                     if (response.data == "No video") {
+                        setLoading(false);
                         alert("Fail");
                     }
                     else {
@@ -63,6 +66,7 @@ const SendLink = () => {
                     }
                 })
                 .catch(error => {
+                    setLoading(false);
                     alert("Failed to send link.");
                 })
         }
@@ -99,7 +103,12 @@ const SendLink = () => {
                 <Link to= {{
                     pathname: "/result",
                     state: { videoIndex : { videoIndex }}
-                }}><button class="btn" id="getVideoButton">Get video</button></Link> : ""}
+                }}
+                style={{ textDecoration: 'none' }}>
+                <button class="btn" id="getVideoButton" >Get video</button>
+                </Link> 
+                : ""
+            }
         </div>
         </>
     )
