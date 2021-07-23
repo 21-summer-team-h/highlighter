@@ -6,7 +6,7 @@
 >
 > 2021.06.28 ~ 2021.07.30
 >
-> Developer: [@JerryK026](https://github.com/JerryK026) [@rlawogns](https://github.com/rlawogns) [@m0oon0](https://github.com/m0oon0) [newave986](https://github.com/newave986) [@cje1903](https://github.com/cje1903)
+> Developer: [@JerryK026](https://github.com/JerryK026) [@rlawogns](https://github.com/rlawogns) [@m0oon0](https://github.com/m0oon0) [@newave986](https://github.com/newave986) [@cje1903](https://github.com/cje1903)
 
 #### RUN: `docker-compose up`
 #### [API Specification](https://github.com/21-summer-team-h/highlighter/wiki)
@@ -24,19 +24,17 @@
 
 
 ## Architecture
-![architecture](https://user-images.githubusercontent.com/69420512/126595031-daf7ed91-e70e-458c-a7fd-5806d8afa7c4.png)
+- ![ds](https://user-images.githubusercontent.com/55067949/126734280-115ae6db-4f02-4b3f-ac57-a6575964d581.PNG)
 
 ## Open Source <br />
 - [Twitch Video & Text Downloader](https://github.com/lay295/TwitchDownloader) - MIT License
 
 ---
 
-## ERD
-![Untitled](https://user-images.githubusercontent.com/55067949/126609846-e5740927-a3d2-4272-9830-6b9959bb7178.png)
 
 
 ## Team Member
 
-|김서경 Seokyung Kim)|김재훈 Jaehun.Kim|문서인 Sooin Moon|장예서 Yeseo Jang|채지은|
+|김서경 Seokyung Kim|김재훈 Jaehun Kim|문수인 Sooin Moon|장예서 Yeseo Jang|채지은 Chae Jieun|
 |:---:|:---:|:---:|:---:|:---:|
 ||||||
