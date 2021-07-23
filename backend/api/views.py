@@ -31,21 +31,24 @@ def download(request) :
 #         return Response(status=status.HTTP_200_OK)
 
 
-@api_view(['GET'])
+@api_view(['POST'])
 def getEmotion(request) :
+    print('get emotion start')
     get_video_index = str(request.data.get('video_index'))
     django.db.close_old_connections()
     
+    print('get_video_index' + get_video_index)
     emotion_list = list()
     for i in range(5):
         highlight_target = Highlight.objects.get(video_index = get_video_index, highlight_index = i)
         emotion_list.append(highlight_target.emotion_1)
 
+    print('emotion_list : ' + str(emotion_list))
     return Response(data={
         "emotion_list": emotion_list
         })
 
-@api_view(['GET'])
+@api_view(['POST'])
 def getVideo(request) :
     get_video_index = str(request.data.get('video_index'))
     path_to_file = '/usr/src/app/videos/vo' + get_video_index + '.mp4'
