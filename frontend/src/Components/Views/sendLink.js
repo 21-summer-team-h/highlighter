@@ -13,7 +13,12 @@ const SendLink = () => {
     const [submitting, setSubmitting] = useState(false);
     const [loading, setLoading] = useState(false);
     const [showButton, setShowButton] = useState(false);
+    const [showGo, setShowGo] = useState(true);
     const [videoIndex, setVideoIndex] = useState();
+
+    useEffect(()=> {
+        setVideoIndex(65);
+    },[]);
 
     const handleInputChange = (event) => {
         setVideoLink(event.target.value);
@@ -37,12 +42,14 @@ const SendLink = () => {
     const handleSubmit = (event) => {
         setSubmitting(true);
         setLoading(true);
+        setShowGo(false);
         event.preventDefault();
 
         // 유효성을 검사한다.
         let errorMsg = ValidateLink(videoLink);
         if ( errorMsg != ""){
             setLoading(false);
+            setShowGo(true);
             alert(errorMsg);
         }
 
@@ -54,6 +61,7 @@ const SendLink = () => {
                 .then(response => {
                     if (response.data == "No video") {
                         setLoading(false);
+                        setShowGo(true);
                         alert("Fail");
                     }
                     else {
@@ -67,6 +75,7 @@ const SendLink = () => {
                 })
                 .catch(error => {
                     setLoading(false);
+                    setShowGo(true);
                     alert("Failed to send link.");
                 })
         }
@@ -95,7 +104,7 @@ const SendLink = () => {
                     placeholder="Twitch Link"
                     onChange={ handleInputChange }>
                 </input>
-                <button type="submit" id="submitButton" class="btn" submitting="submitting">GO</button>
+                {showGo ? <button type="submit" id="submitButton" class="btn" submitting="submitting">GO</button> : ""}
             </form>
             <div id="progressStatus">{loading? <Loading/> : ""}</div>
             {/* 작업 종료 후, page 4로 이동할 수 있는 버튼을 보여준다. */}
