@@ -29,13 +29,16 @@ const ShowResult = (props) => {
         //     console.log(error)
         // })
 
-        axios.get('/api/getEmotion/')   //backend에게 emotion요청
+        axios.get('/api/getEmotion/', {
+            video_index: videoIndex
+        })   //backend에게 emotion요청
         .then(response => {
-            setEmotion1(emo[response.data.emotion1]);    //0~6사이 숫자 형태로 받아옴
-            setEmotion2(emo[response.data.emotion2]);    
-            setEmotion3(emo[response.data.emotion3]);   
-            setEmotion4(emo[response.data.emotion4]);    
-            setEmotion5(emo[response.data.emotion5]);        
+            emotion_list = response.data.emotion_list;
+            setEmotion1(emo[emotion_list[0]]);    //0~6사이 숫자 형태로 받아옴
+            setEmotion2(emo[emotion_list[1]]);    
+            setEmotion3(emo[emotion_list[2]]);   
+            setEmotion4(emo[emotion_list[3]]);    
+            setEmotion5(emo[emotion_list[4]]);        
         })
         .catch(error=>{
             console.log(error)
@@ -45,10 +48,11 @@ const ShowResult = (props) => {
     var fileDownload = require('js-file-download');
 
     const handleDownload = () => {
-        axios.get("/api/getVideo/{videoIndex}",{
+        axios.get("/api/getVideo/",{
+            video_index: videoIndex,
             responseType:'blob'
         }).then(res => {
-            fileDownload(res.data,'filename.mp4')
+            fileDownload(res.data,'highlight.mp4')
             console.log(res)
         }).catch(error=>{
             console.log(error)
