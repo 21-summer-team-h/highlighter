@@ -112,9 +112,8 @@ def video_process(VIDEO_index):
 
 def select_concatenate(clip_number):
 
-    """
-    1. emotion list 넘겨 주는 코드 필요
-    """
+    # 1. emothin list 넘겨 줌
+    # getAllEmotion post
 
     # 2. front에서 사용자가 입력한 clip number 받는 코드 필요
     # -> getNums(request)
