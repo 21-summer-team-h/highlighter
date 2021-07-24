@@ -7,12 +7,8 @@ import logoImg from "../images/logo.png";
 
 const ShowResult = (props) => {
     const [Video, setVideo] = useState([]);
-    const [videoIndex, setVideoIndex] = useState();
+    const videoIndex = props.location.state.videoIndex;
 
-    useEffect(()=>{
-        setVideoIndex(props.location.state.videoIndex);
-    }, [])
-    
     const emo=["Angry","Disgusting","Fearful", "Happy", "Sad", "Surpring", "Neutral"];   //0~6
     const [Emotion1, setEmotion1] = useState();
     const [Emotion2, setEmotion2] = useState();
@@ -21,15 +17,7 @@ const ShowResult = (props) => {
     const [Emotion5, setEmotion5] = useState();
 
     useEffect(()=>{
-        // axios.get('/api/node/job-end') //video 편집 완료 메세지
-        // .then(response => {          
-        //         setVideo(response.data.video);                      
-        // })
-        // .catch(error =>{
-        //     console.log(error)
-        // })
-
-        axios.get('/api/getEmotion/', {
+        axios.post('/api/getEmotion/', {
             video_index : videoIndex
         })   //backend에게 emotion요청
         .then(response => {
@@ -47,18 +35,20 @@ const ShowResult = (props) => {
 
     var fileDownload = require('js-file-download');
 
-    const handleDownload = () => {
-        axios.get("/api/getVideo/",{
+    const handleDownload = (e) => {
+        e.preventDefault();
+        alert("hi");
+
+        axios.post("/api/getVideo/",{
             video_index: videoIndex,
             responseType:'blob'
         }).then(res => {
             fileDownload(res.data,'highlight.mp4')
-            console.log(res)
+            // console.log(res)
         }).catch(error=>{
             console.log(error)
         })
     }
-
 
     return (
         <>
@@ -73,7 +63,10 @@ const ShowResult = (props) => {
 
             <div id="videoBox"></div>
             {/* 다운로드 버튼 구현 */}
-            <button id="downloadButton" class="btn"  onclick={ handleDownload }  >Download</button>
+
+            <form onSubmit = { handleDownload }>
+                <button type="submit" id="downloadButton" class="btn">Download</button>
+            </form>
 
             {/* 태그 보여주기 */}
             <p id="tag">#{Emotion1} #{Emotion2} #{Emotion3} #{Emotion4} #{Emotion5}</p> 
