@@ -58,11 +58,11 @@ def getVideo(request) :
     return response
 
 # 사용자가 입력한 clip 번호 받기
-@api_view(['POST'])
+@api_view(['GET'])
 def getNums(request) :
-    clipNum = request.data.get('clipNum')
+    clipNum = (request.GET.get('clipNum')
     print("---" + str(clipNum))
-    get_video_index = str(request.data.get('video_index'))
+    get_video_index = str(request.GET.get('video_index'))
     django.db.close_old_connections()
     returnSelectCat = select_concatenate(get_video_index, clipNum)
     if returnSelectCat != 0 :
@@ -110,11 +110,15 @@ def getClips(request) :
             return JsonResponse(l, safe=False)
         f = open(thumb, 'rb')
         imgFile = File(f)
+        encoded = base64.b64encode(imgFile.read())
+        encoded = encoded.decode("UTF-8")
+
         temp_data={
-            'thumbnail' : str(base64.encodebytes(imgFile.read())),
+            'thumbnail' : encoded,
             'emotionlist' : emotion_list
         }
         send_data.append(temp_data)
         if os.path.isfile(str(path_to_file)+".png"):        #썸네일 이미지 삭제
             os.remove(str(path_to_file)+".png")
+
     return JsonResponse(send_data, safe=False)

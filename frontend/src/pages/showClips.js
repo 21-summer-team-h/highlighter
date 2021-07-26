@@ -16,16 +16,6 @@ const ShowClips = (props) => {
     const [showBtn, setShowBtn] = useState(true);
     const leftBar = EMOTIONS.map((emotion, index) => (<li key={index} id="emotions">#{emotion}</li>))
     const [clips, setClips] = useState();
-    
-    // ~test~
-    // useEffect(()=>{
-    //     setClips([
-    //         { "thumbnail" : 0, "emotionlist" : [0,1,2]},
-    //         { "thumbnail" : 0, "emotionlist" : [3,2,1]},
-    //         { "thumbnail" : 0, "emotionlist" : [1,2,3]},
-    //         { "thumbnail" : 0, "emotionlist" : [0,0,0]},
-    //         { "thumbnail" : 0, "emotionlist" : [1,1,1]}]);
-    // }, []);
 
     // clip 5개 thumbnail, emotionlist 받기
     useEffect(() => {
@@ -83,6 +73,7 @@ const ShowClips = (props) => {
 
         axios.get("/api/getNums/", { 
             params: { 
+                video_index: videoIndex,
                 clipNum : str, 
             }
         })
