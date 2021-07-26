@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Route, Link } from "react-router-dom";
 import './showResult.css';
 import axios from "axios";
 import logoImg from "../images/logo.png";
+import Facebook_logo from "../images/facebook-logo.png";
+import Youtube_logo from "../images/youtube-logo.png";
+import Twitter_logo from "../images/twitter-logo.png";
+import Instagram_logo from "../images/instagram-logo.png";
 
 
 const ShowResult = (props) => {
@@ -16,6 +19,7 @@ const ShowResult = (props) => {
     const [Emotion4, setEmotion4] = useState();
     const [Emotion5, setEmotion5] = useState();
 
+    
     useEffect(()=>{
         axios.post('/api/getEmotion/', {
             video_index : videoIndex
@@ -57,7 +61,17 @@ const ShowResult = (props) => {
             <hr id="line1"></hr>
             <hr id="line2"></hr>
             <img id="logo" src={logoImg}/>
-
+            <div class="leftbar">
+                <div class="folder"><span>Upload & Share</span></div>
+                <br></br>
+                <div><img id = "snsLogoImg" src={ Facebook_logo }/><a class="goSns" target="_blank" href="https://facebook.com">Facebook</a><span></span></div>
+                <br></br>
+                <div><img id = "snsLogoImg" src={ Twitter_logo }/><a class="goSns" target="_blank" href="https://twitter.com">Twitter</a><span></span></div>
+                <br></br>
+                <div><img id = "snsLogoImg" src={ Instagram_logo }/><a class="goSns" target="_blank" href="https://instagram.com">Instagram</a><span></span></div>
+                <br></br>
+                <div><img id = "snsLogoImg" src={ Youtube_logo }/><a class="goSns" target="_blank" href="https://youtube.com">Youtube</a><span></span></div>
+            </div>
             {/* 완성 영상 재생시키기
             <video id="show_video" width="2600" height="2000" src={}} controls></video>
             controls이 존재하면, 소리 조절(volume), 동영상 탐색(seek), 일시 정지(pause)/재시작(resume)을 할 수 있는 컨트롤러를 제공합니다.*/}

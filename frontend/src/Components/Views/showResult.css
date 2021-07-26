@@ -45,14 +45,27 @@ body {
     left: 10px;
 }
 
+.goSns{
+    font-family: inherit;
+    margin-right: 2.6rem;
+    box-shadow: 0 0 0 black;
+    transition: all 0.2s;
+    position: relative;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    width: 100px;
+    font-size:0.4cm;
+}
+
 /* tag */
 
 #tag {
     position: absolute;
-    width: 300px;
+    width: 542px;
     height: 58px;
     top: 400px;
-    left: 235px;
+    left: 20px;
+
     font-family: Abhaya Libre SemiBold;
     font-style: normal;
     font-weight: 600;
@@ -62,23 +75,22 @@ body {
     color: #000000;
 }
 
-#videoBox {
-    width: 430px;
+#videoBox{
+    width: 400px;
     height: 250px;
     border: 0.01px solid;
-    position: relative;
-    left: 235px;
+    position: absolute;
+    left: 250px;
     top: 100px;
-    border: 0;
-    background: #FFFBFB;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 #downloadButton {
-    position: relative;
-    width: 100px;
-    height: 30px;
-    left: 270px;
-    top: 250px;
+    position: absolute;
+    width: 98px;
+    height: 27px;
+    left: 552px;
+    top: 450px;
     font-family: Georgia;
     font-weight: bold; 
     text-align: center;
@@ -111,6 +123,24 @@ body {
     width: 50px;
 }
 
+.sns {
+    font-family: inherit;
+    border: 3px solid #FFFCFC;
+    margin-right: 2.6rem;
+    box-shadow: 0 0 0 black;
+    transition: all 0.2s;
+    position: relative;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    width: 120px;
+}
+
+#snsLogoImg{
+    display: inline;
+    width: 25px;
+    height: 25px;
+    padding-right: 10px;
+}
 
 /* upload & share */
 
