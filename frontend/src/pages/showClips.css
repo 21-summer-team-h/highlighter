@@ -1,7 +1,5 @@
 body {
     position: absolute;
-    width: 1440px;
-    height: 1024px;
     background: #F7F7F7;
     box-sizing: border-box;
 }
@@ -47,8 +45,6 @@ body {
 
 .leftbar{
     position: relative;
-    width: 138px;
-    height: 520px;
     left: 20px;
     top: 100px;
     text-align: left;
@@ -56,89 +52,71 @@ body {
 
 }
 
-.folder {
+#emotions {
     position: relative;
     padding-bottom: 10px;
     padding-top: 10px;
-    width: 150px;
+    right: 40px;
+    bottom: 50px;
+    text-align: left;
+    list-style-type : none;
 }
 
-#folderImg {
+.videos{
+    display: block;
+    position: relative;
+    bottom: 420px;
+    left: 200px;
+}
+
+.videoBox {
+    position: relative;
+    display: block;
+    text-align: left;
+} 
+
+.videoThumbnail {
     display: inline;
-    width: 20px;
-    height: 15px;
-    padding-right: 20px;
-}
-
-div#folder span {
-    padding: 10px;
-    padding-left: 20px;
-}
-
-div #open.folder{
     position: relative;
-    background-color: #F7F7F7;
-    height: 15px;
-    width: 165px;
-    text-align: center;
-    right: 20px;
+    width: 150px;
+    height: 70px;
+    border: 1px solid;
 }
 
-#linkForm {
-    position: absolute;
-    width: 899px;
-    height: 189px;
-    left: 270px;
-    top: 350px;
-
-    border: 6px black;
-    border-radius: 1px;
-    /* opacity: 0.8; */
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
-#text {
+.videoEmotions{
     position: relative;
-    width: 395px;
-    height: 26px;
-    left: 183px;
-    bottom: 410px;
-
+    display: inline;
+    bottom: 27px;
+    left: 30px;
     font-family:'Times New Roman', Times, serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
-
-    color: #000000;
-
+    font-weight: bold;
 }
 
-#linkInputBox {
+.checkbox{
     position: absolute;
-    width: 440px;
-    height: 25px;
-    right: 500px;
-    bottom: 290px;
-    border: 3px solid black;
-    box-shadow: transparent;
-    background-color: white;
+    display: inline;
+    bottom: 370px;
+    right: 40px;
 }
 
-#linkInputBox:focus {
-    outline: none;
+#c2 {
+    position: relative;
+    top: 55px;
 }
 
-#submitButton {
-    position: absolute;
-    width: 100px;
-    height: 30px;
-    right: 460px;
-    bottom: 200px;
-    font-family: Georgia;
-    font-weight: bold; 
-    text-align: center;
-    background-color: white;
+#c3 {
+    position: relative;
+    top: 110px;
+}
+
+#c4 {
+    position: relative;
+    top: 165px;
+}
+
+#c5 {
+    position: relative;
+    top: 220px;
 }
 
 .btn {
@@ -159,15 +137,7 @@ div #open.folder{
     transform: translate(0, 0);
 }
 
-#progressStatus {
-    position: absolute;
-    top: 400px;
-    left: 450px;
-    height: 50px;
-    width: 50px;
-}
-
-#getVideoButton {
+#selectButton {
     display: block;
     color: black;
     text-decoration: none;
@@ -176,9 +146,17 @@ div #open.folder{
     font-family: Georgia;
     font-size: 15px;
     font-weight: bold;
-    position: relative;
+    position: absolute;
     left: 570px;
     bottom: 50px;
     width: 100px;
     height: 30px;
+}
+
+#loading2 {
+    position: absolute;
+    top: 540px;
+    left: 430px;
+    height: 50px;
+    width: 50px;
 }

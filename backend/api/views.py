@@ -20,17 +20,11 @@ import base64
 @api_view(['POST'])
 def download(request) :
     videoID = str(request.data.get('videoID'))      #videoID = 트위치영상 아이디
-    returnTwitchDownload = 93#twitchDownload(videoID)
+    returnTwitchDownload = 93 #twitchDownload(videoID)
     if returnTwitchDownload != 0 :
         return Response(data=returnTwitchDownload)
     else :
         return Response(data="No video")
-
-
-# @api_view(['GET'])
-# def edit(request) :
-#     if True :
-#         return Response(status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])
@@ -57,11 +51,11 @@ def getVideo(request) :
     f = open(path_to_file, 'rb')
     videoFile = File(f)
     response = HttpResponse(videoFile.read())
-    response['Content-Disposition'] = 'attachment';
+    response['Content-Disposition'] = 'attachment'
     return response
 
 @api_view(['GET'])
-def getThumbnail(request) :
+def getClips(request) :
     get_video_index = str(request.GET.get('video_index', '93'))
     send_data=[]
     for i in range(5):
