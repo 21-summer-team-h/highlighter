@@ -4,7 +4,7 @@ from django.shortcuts import render
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-
+from videos.thumbnail import create_thumbnail
 import django.db
 
 from videos.TwitchDownloader import twitchDownload
@@ -13,7 +13,8 @@ import settings
 from api.models import Video, Highlight
 
 from django.core.files import File
-from django.http import HttpResponse
+from django.http import HttpResponse , JsonResponse
+
 import base64
 
 @api_view(['POST'])
@@ -51,7 +52,7 @@ def getEmotion(request) :
 
 @api_view(['GET'])
 def getVideo(request) :
-    get_video_index = str(request.GET.get('video_index', '50'))
+    get_video_index = str(request.GET.get('video_index', '93'))
     path_to_file = '/usr/src/app/videos/vo' + get_video_index + '.mp4'
     f = open(path_to_file, 'rb')
     videoFile = File(f)
@@ -59,3 +60,28 @@ def getVideo(request) :
     response['Content-Disposition'] = 'attachment';
     return response
 
+@api_view(['GET'])
+def getThumbnail(request) :
+    get_video_index = str(request.GET.get('video_index', '93'))
+    send_data=[]
+    for i in range(5):
+        django.db.close_old_connections()
+        highlight_target = Highlight.objects.get(video_index = get_video_index, highlight_index = i)
+        emotion_list = list()
+        emotion_list.append(highlight_target.emotion_1)
+        emotion_list.append(highlight_target.emotion_2)
+        emotion_list.append(highlight_target.emotion_3)
+        path_to_file = '/usr/src/app/videos/v' + str(get_video_index) + '-h' + str(i)
+        thumb=create_thumbnail(path_to_file)
+        if thumb==0:                                #썸네일 제작에서 에러 발생시 빈 json파일 전송
+            l={}
+            return JsonResponse(l, safe=False)
+        f = open(thumb, 'rb')
+        imgFile = File(f)
+        temp_data={
+            'thumbnail' : str(base64.encodebytes(imgFile.read())),
+            'emotionlist' : emotion_list
+        }
+        send_data.append(temp_data)
+    
+    return JsonResponse(send_data, safe=False)
