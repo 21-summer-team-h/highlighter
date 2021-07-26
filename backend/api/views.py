@@ -20,7 +20,7 @@ import os
 @api_view(['POST'])
 def download(request) :
     videoID = str(request.data.get('videoID'))      #videoID = 트위치영상 아이디
-    returnTwitchDownload = 93 #twitchDownload(videoID)
+    returnTwitchDownload = twitchDownload(videoID)
     if returnTwitchDownload != 0 :
         return Response(data=returnTwitchDownload)
     else :
