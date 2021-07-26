@@ -22,17 +22,21 @@ def twitchDownload(VIDEO_ID):
     subprocess.run(["/usr/src/app/videos/TwitchDownloaderCLI", "--download-ffmpeg"])
     subprocess.run(["echo", "ffmpegcomplete"])
     remp4 = subprocess.run(["/usr/src/app/videos/TwitchDownloaderCLI", "-m", "VideoDownload", "--id", VIDEO_ID, "-o", VIDEO_mp4_PATH])
-    subprocess.run(["echo", "mp4complete"])
-    if str(remp4.returncode) != '0':
-        #디비 삭제 코드 넣기
-        return 0
     
-    retxt = subprocess.run(["/usr/src/app/videos/TwitchDownloaderCLI", "-m", "ChatDownload", "--id", VIDEO_ID, "--timestamp-format", "Relative", "-o", VIDEO_txt_PATH])
-    subprocess.run(["echo", "txtcomplete"])
-    if str(retxt.returncode) != '0':
-        #디비 삭제 코드 넣기
+    if str(remp4.returncode) != '0':        #오류 발생 시 디비 삭제
+        django.db.close_old_connections()
+        delete_target = Video.objects.get(video_index = VIDEO_index)
+        delete_target.delete()
         return 0
-
+    subprocess.run(["echo", "mp4complete"])
+    retxt = subprocess.run(["/usr/src/app/videos/TwitchDownloaderCLI", "-m", "ChatDownload", "--id", VIDEO_ID, "--timestamp-format", "Relative", "-o", VIDEO_txt_PATH])
+    
+    if str(retxt.returncode) != '0':        #오류 발생 시 디비 삭제
+        django.db.close_old_connections()
+        delete_target = Video.objects.get(video_index = VIDEO_index)
+        delete_target.delete()
+        return 0
+    subprocess.run(["echo", "txtcomplete"])
     # highlight 수집
     django.db.close_old_connections()
     selecthighlight(VIDEO_index)

@@ -1,0 +1,233 @@
+body {
+    position: absolute;
+    width: 1440px;
+    height: 1024px;
+    background: #F7F7F7;
+    box-sizing: border-box;
+}
+
+#mainbox{
+    position: relative;
+    width: 734px;
+    height: 632px;
+    left: 353px;
+    top: 204px;
+
+    background: #FFFCFC;
+    box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.25);
+}
+
+#line1{
+    position: relative;
+    width: 731px;
+    left: 0;
+    top: 85px;
+
+    border: 0.01px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+    transform: rotate(180deg);
+}
+
+#line2{
+    position: relative;
+    width: 542px;
+    right: 200px;
+    top: 348px;
+    border: 0.1px solid rgba(0, 0, 0, 0.1);
+    transform: rotate(-90deg);
+    filter: blur(0.1px);
+}
+
+#logo {
+    position: relative;
+    width: 149px;
+    float: left;
+    left: 10px;
+}
+
+/* tag */
+
+.emotionTags {
+    position: absolute;
+    width: 450px;
+    height: 50px;
+    top: 400px;
+    left: 240px;
+    font-family: Abhaya Libre SemiBold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 21px;
+    text-align: left;
+    list-style-type : none;
+    color: #000000;
+}
+
+#videoBox {
+    width: 430px;
+    height: 250px;
+    border: 0.01px solid;
+    position: absolute;
+    left: 235px;
+    top: 120px;
+    border: 0;
+    background: #FFFBFB;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#downloadButton {
+    display: block;
+    color: black;
+    text-decoration: none;
+    background-color: white;
+    text-align: center;
+    font-family: Georgia;
+    font-size: 15px;
+    font-weight: bold;
+    position: absolute;
+    left: 570px;
+    bottom: 50px;
+    width: 100px;
+    height: 30px;
+}
+
+.btn {
+    font-family: inherit;
+    border: 3px solid black;
+    margin-right: 2.6rem;
+    box-shadow: 0 0 0 black;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    box-shadow: 0.4rem 0.4rem 0 black;
+    transform: translate(-0.4rem, -0.4rem);
+}
+  
+.btn:active {
+    box-shadow: 0 0 0 black;
+    transform: translate(0, 0);
+}
+
+#progressStatus {
+    position: absolute;
+    top: 400px;
+    left: 400px;
+    height: 50px;
+    width: 50px;
+}
+
+
+/* upload & share */
+
+#upload_and_share{position: absolute;
+width: 99px;
+height: 19px;
+left: 372px;
+top: 370px;
+
+font-family: Abhaya Libre SemiBold;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 19px;
+/* identical to box height */
+text-align: center;
+
+color: #000000;
+}
+
+.leftbar{
+    position: relative;
+    width: 138px;
+    height: 520px;
+    left: 20px;
+    top: 100px;
+    text-align: left;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.sns { 
+    font-family: inherit; 
+    border: 3px solid #FFFCFC; 
+    margin-right: 2.6rem; 
+    box-shadow: 0 0 0 black; 
+    transition: all 0.2s; 
+    position: relative; 
+    padding-bottom: 5px; 
+    padding-top: 5px; 
+    width: 120px; 
+} 
+ 
+#snsLogoImg{ 
+    display: inline; 
+    width: 25px; 
+    height: 25px; 
+    padding-right: 10px; 
+} 
+
+.goSns{ 
+    font-family: inherit; 
+    margin-right: 2.6rem; 
+    box-shadow: 0 0 0 black; 
+    transition: all 0.2s; 
+    position: relative; 
+    padding-bottom: 5px; 
+    padding-top: 5px; 
+    width: 100px; 
+    font-size:0.4cm; 
+} 
+
+/* Download button */
+
+#download_button{position: absolute;
+width: 84px;
+height: 26px;
+left: 931px;
+top: 681px;
+}
+
+
+/* Download_rectangle */
+
+#download_rectangle{position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+border: 2px solid #000000;
+box-sizing: border-box;
+}
+
+/* Download */
+
+#download{position: absolute;
+left: 13.19%;
+right: 7.69%;
+top: 15.38%;
+bottom: 0%;
+
+font-family: Abhaya Libre SemiBold;
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 21px;
+
+color: #000000;
+}
+
+
+
+
+/* show video */
+
+#show_video{position: absolute;
+width: 430px;
+height: 215px;
+left: 580px;
+top: 350px;
+
+background: #FFFBFB;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
