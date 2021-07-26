@@ -111,7 +111,6 @@ def video_process(VIDEO_index):
     all_concatenate(target,path_list)
 
 def select_concatenate(clip_number):
-
     # 1. emothin list 넘겨 줌
     # getAllEmotion post
 
@@ -124,10 +123,6 @@ def select_concatenate(clip_number):
         clip_path.append(path_list[c-1])
         # 1, 2, 3, 4, 5로 받아오면 c-1로 입력해야지
     all_concatenate(target, clip_path)
-
-    """
-    4. emotion도 clip_number에 해당하는 것만 추출해서 보내 주기
-    """
 
 # t = Video.objects.order_by('-video_index')[0]
 # pl = ['/usr/src/app/videos/v13-h0.mp4', '/usr/src/app/videos/v13-h1.mp4', '/usr/src/app/videos/v13-h2.mp4', '/usr/src/app/videos/v13-h3.mp4', '/usr/src/app/videos/v13-h4.mp4']

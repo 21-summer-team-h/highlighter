@@ -72,6 +72,7 @@ def getNums(request) :
 # 모든 emotion list를 넘겨 주기
 # 일단 3개를 모두 같은 list에 넣는 것으로 설정 
 # 이렇게 되면 front에서 받아서 차례로 3개씩 출력해야 함
+@api_view(['POST'])
 def getAllEmotion(request) :
     print('get all emotion start')
     get_video_index = str(request.data.get('video_index'))
