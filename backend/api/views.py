@@ -14,11 +14,12 @@ from api.models import Video, Highlight
 
 from django.core.files import File
 from django.http import HttpResponse
+import base64
 
 @api_view(['POST'])
 def download(request) :
     videoID = str(request.data.get('videoID'))      #videoID = 트위치영상 아이디
-    returnTwitchDownload = twitchDownload(videoID)
+    returnTwitchDownload = 93#twitchDownload(videoID)
     if returnTwitchDownload != 0 :
         return Response(data=returnTwitchDownload)
     else :
@@ -48,9 +49,9 @@ def getEmotion(request) :
         "emotion_list": emotion_list
         })
 
-@api_view(['POST'])
+@api_view(['GET'])
 def getVideo(request) :
-    get_video_index = str(request.data.get('video_index'))
+    get_video_index = str(request.GET.get('video_index', '50'))
     path_to_file = '/usr/src/app/videos/vo' + get_video_index + '.mp4'
     f = open(path_to_file, 'rb')
     videoFile = File(f)
@@ -71,7 +72,6 @@ def getNums(request) :
 # 모든 emotion list를 넘겨 주기
 # 일단 3개를 모두 같은 list에 넣는 것으로 설정 
 # 이렇게 되면 front에서 받아서 차례로 3개씩 출력해야 함
-@api_view(['POST'])
 def getAllEmotion(request) :
     print('get all emotion start')
     get_video_index = str(request.data.get('video_index'))
