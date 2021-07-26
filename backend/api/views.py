@@ -16,7 +16,7 @@ from django.core.files import File
 from django.http import HttpResponse , JsonResponse
 
 import base64
-
+import os
 @api_view(['POST'])
 def download(request) :
     videoID = str(request.data.get('videoID'))      #videoID = 트위치영상 아이디
@@ -77,5 +77,6 @@ def getClips(request) :
             'emotionlist' : emotion_list
         }
         send_data.append(temp_data)
-    
+        if os.path.isfile(str(path_to_file)+".png"):        #썸네일 이미지 삭제
+            os.remove(str(path_to_file)+".png")
     return JsonResponse(send_data, safe=False)
