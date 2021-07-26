@@ -14,11 +14,12 @@ from api.models import Video, Highlight
 
 from django.core.files import File
 from django.http import HttpResponse
+import base64
 
 @api_view(['POST'])
 def download(request) :
     videoID = str(request.data.get('videoID'))      #videoID = 트위치영상 아이디
-    returnTwitchDownload = twitchDownload(videoID)
+    returnTwitchDownload = 93#twitchDownload(videoID)
     if returnTwitchDownload != 0 :
         return Response(data=returnTwitchDownload)
     else :
@@ -48,12 +49,13 @@ def getEmotion(request) :
         "emotion_list": emotion_list
         })
 
-@api_view(['POST'])
+@api_view(['GET'])
 def getVideo(request) :
-    get_video_index = str(request.data.get('video_index'))
+    get_video_index = str(request.GET.get('video_index', '50'))
     path_to_file = '/usr/src/app/videos/vo' + get_video_index + '.mp4'
     f = open(path_to_file, 'rb')
     videoFile = File(f)
     response = HttpResponse(videoFile.read())
     response['Content-Disposition'] = 'attachment';
     return response
+

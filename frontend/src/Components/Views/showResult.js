@@ -37,18 +37,19 @@ const ShowResult = (props) => {
 
     const handleDownload = (e) => {
         e.preventDefault();
-        alert("hi");
 
-        axios.post("/api/getVideo/",{
-            video_index: videoIndex,
+        axios.get("/api/getVideo/",{
+            params: {
+                video_index: videoIndex,
+            },
             responseType:'blob'
         }).then(res => {
             fileDownload(res.data,'highlight.mp4')
-            // console.log(res)
         }).catch(error=>{
             console.log(error)
         })
     }
+
 
     return (
         <>
