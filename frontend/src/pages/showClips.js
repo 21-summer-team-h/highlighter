@@ -79,10 +79,11 @@ const ShowClips = (props) => {
     const selectBtnHandler = () => {
         setShowBtn(false);
         setLoading(true);
+        let str = [...clipNum].join("");
 
         axios.get("/api/getNums/", { 
             params: { 
-                clipNum : clipNum, 
+                clipNum : str, 
             }
         })
         .then(response => {
