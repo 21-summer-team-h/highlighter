@@ -104,24 +104,26 @@ def video_process(VIDEO_index):
     # target 영상 경로
 
     path_list=cut(target)       # 자르기 수행 + 저장 수행
-    print(path_list)
-    emotionlist = get_emotion(target,path_list)
-    print(emotionlist)
+    emotionlist = get_emotion(target, path_list)
 
-    all_concatenate(target,path_list)
 
-def select_concatenate(clip_number):
-    # 1. emothin list 넘겨 줌
-    # getAllEmotion post
+def select_concatenate(VIDEO_index, clip_number):
+    target = Video.objects.get(video_index = VIDEO_index)
+    target_number = target.video_index
 
-    # 2. front에서 사용자가 입력한 clip number 받는 코드 필요
-    # -> getNums(request)
+    path_list = []
 
-    # 3. 받은 다음 그거에 대해서만 합치기 코드
+    for i in Highlight.objects.filter(video_index=target_number):
+        print("get video : " + str(i))
+        save_path = i.highlight_path
+        path_list.append(save_path)
+
     clip_path = []
     for c in clip_number:
-        clip_path.append(path_list[c-1])
+        print(c)
+        clip_path.append(path_list[int(c)-1])
         # 1, 2, 3, 4, 5로 받아오면 c-1로 입력해야지
+    print(clip_path)
     all_concatenate(target, clip_path)
 
 # t = Video.objects.order_by('-video_index')[0]

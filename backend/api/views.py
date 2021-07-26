@@ -14,12 +14,13 @@ from api.models import Video, Highlight
 
 from django.core.files import File
 from django.http import HttpResponse
+from videoprocess.run import select_concatenate
 import base64
 
 @api_view(['POST'])
 def download(request) :
     videoID = str(request.data.get('videoID'))      #videoID = 트위치영상 아이디
-    returnTwitchDownload = 93#twitchDownload(videoID)
+    returnTwitchDownload = twitchDownload(videoID)
     if returnTwitchDownload != 0 :
         return Response(data=returnTwitchDownload)
     else :
@@ -62,8 +63,11 @@ def getVideo(request) :
 # 사용자가 입력한 clip 번호 받기
 @api_view(['POST'])
 def getNums(request) :
-    clipNum = list(request.data.get('clipNum'))
-    returnSelectCat = select_concatenate(clipNum)
+    clipNum = request.data.get('clipNum')
+    print("---" + str(clipNum))
+    get_video_index = str(request.data.get('video_index'))
+    django.db.close_old_connections()
+    returnSelectCat = select_concatenate(get_video_index, clipNum)
     if returnSelectCat != 0 :
             return Response(data=returnSelectCat)
     else :
