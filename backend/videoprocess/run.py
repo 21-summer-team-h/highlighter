@@ -82,21 +82,12 @@ def cut(target):
         하이라이트 영상 : v$(video_index)-h$(highlight_index) ex)v5-h1.mp4
         완성된 영상 : vo$(video_index) ex) vo5.mp4
         """
-        print(start)
-        print(type(start))
-        print(end)
-        print(type(end))
-        print("starttime")
-        print(str(start))
         starttime=(int(str(start)[0:2])*3600 + int(str(start)[3:5])*60 + int(str(start)[6:8]))
-        print(starttime)
         endtime=(int(str(end)[0:2])*3600 + int(str(end)[3:5])*60 + int(str(end)[6:8]))
-        print(endtime)
         print(path_list)
         django.db.close_old_connections()
 
         cut_clip(target_path, starttime, endtime, save_path)
-    print("여기???")
     print(path_list)
     return path_list
 
@@ -113,10 +104,28 @@ def video_process(VIDEO_index):
     # target 영상 경로
 
     path_list=cut(target)       # 자르기 수행 + 저장 수행
-    print(path_list)
-    emotionlist = get_emotion(target,path_list)
-    print(emotionlist)
-    all_concatenate(target,path_list)
+    emotionlist = get_emotion(target, path_list)
+
+
+def select_concatenate(VIDEO_index, clip_number):
+    target = Video.objects.get(video_index = VIDEO_index)
+    target_number = target.video_index
+
+    path_list = []
+
+    for i in Highlight.objects.filter(video_index=target_number):
+        print("get video : " + str(i))
+        save_path = i.highlight_path
+        path_list.append(save_path)
+
+    clip_path = []
+    for c in clip_number:
+        print(c)
+        clip_path.append(path_list[int(c)-1])
+        # 1, 2, 3, 4, 5로 받아오면 c-1로 입력해야지
+    print(clip_path)
+    all_concatenate(target, clip_path)
+
 # t = Video.objects.order_by('-video_index')[0]
 # pl = ['/usr/src/app/videos/v13-h0.mp4', '/usr/src/app/videos/v13-h1.mp4', '/usr/src/app/videos/v13-h2.mp4', '/usr/src/app/videos/v13-h3.mp4', '/usr/src/app/videos/v13-h4.mp4']
 
