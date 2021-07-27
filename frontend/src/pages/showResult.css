@@ -175,7 +175,9 @@ color: #000000;
     padding-bottom: 5px; 
     padding-top: 5px; 
     width: 100px; 
-    font-size:0.4cm; 
+    font-size:0.4cm;
+    text-decoration-line: none;
+    color: black;
 } 
 
 /* Download button */
