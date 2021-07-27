@@ -123,7 +123,10 @@ def select_concatenate(VIDEO_index, clip_number):
         path_list.append(save_path)
 
     clip_path = []
-    for c in clip_number:
+    clip_number_s = [int(c) for c in clip_number]
+    clip_number_s.sort()
+
+    for c in clip_number_s:
         print(c)
         clip_path.append(path_list[int(c)])
         # 1, 2, 3, 4, 5로 받아오면 c-1로 입력해야지
