@@ -12,6 +12,7 @@ const EMOTIONS = ['Angry', 'Disgusting', 'Fearful', 'Happy', 'Sad', 'Surprising'
 const ShowClips = (props) => {
     const videoIndex = props.location.state.videoIndex;
     const history = useHistory();
+    const [load, setLoad] = useState(true);
     const [loading, setLoading] = useState(false);
     const [showBtn, setShowBtn] = useState(true);
     const leftBar = EMOTIONS.map((emotion, index) => (<li key={index} id="emotions">#{emotion}</li>))
@@ -28,7 +29,10 @@ const ShowClips = (props) => {
             if (response.data == {}){
                 alert("Failed to show clips");
             }
-            else setClips(response.data); //JSON -> ?
+            else {
+                setLoad(true);
+                setClips(response.data);
+            }
         })
         .catch(error => {
             console.log(error)
@@ -48,10 +52,11 @@ const ShowClips = (props) => {
     function getCheckedEmo() {
         return new Promise(function(resolve, reject){
             let checkedEmo = [];
+            let resultImg = clips[clipNum[0]].thumbnail;
             for (const value of clipNum){
                 checkedEmo.push(clips[value].emotionlist[0])
             }
-            resolve(checkedEmo)
+            resolve(checkedEmo, resultImg)
         });
     }
 
@@ -59,7 +64,7 @@ const ShowClips = (props) => {
         let checkedEmo = await getCheckedEmo();
         history.push({
             pathname: '/result',
-            state: { videoIndex : videoIndex, checkedEmo : checkedEmo },
+            state: { videoIndex : videoIndex, checkedEmo : checkedEmo, thumbnail : resultImg },
         });
     }
 
@@ -115,6 +120,7 @@ const ShowClips = (props) => {
                 style = {showBtn ? { visibility : "visible" } : { visibility: "hidden" }}>select
             </button>
 
+            <div id="load">{load? <Loading/> : ""}</div>
             <div id="loading2">{loading? <Loading/> : ""}</div>
         </div>
         </>
