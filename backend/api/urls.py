@@ -3,7 +3,6 @@ from . import views
 
 urlpatterns = [
     path('api/download/', views.download),
-    # path('api/edit/', views.edit),
     path('api/getClips/', views.getClips),
     path('api/getNums/', views.getNums),
     path('api/getEmotion/', views.getEmotion),

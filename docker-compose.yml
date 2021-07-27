@@ -32,4 +32,3 @@ services:
         - "80:80/tcp"
       volumes:
         - ./nginx:/etc/nginx/conf.d
-        - ./static:/staticfiles
