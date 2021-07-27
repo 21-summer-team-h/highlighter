@@ -67,7 +67,7 @@ const ShowClips = (props) => {
     
     async function selectHandler() {
         let checkedEmo = await getCheckedEmo();
-        let resultImg = await getResultImg();
+        // let resultImg = await getResultImg();
         history.push({
             pathname: '/result',
             // state: { videoIndex : videoIndex, checkedEmo : checkedEmo, thumbnail : resultImg},
