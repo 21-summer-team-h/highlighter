@@ -30,7 +30,6 @@ const ShowClips = (props) => {
                 alert("Failed to show clips");
             }
             else {
-                setLoad(true);
                 setClips(response.data);
             }
         })
@@ -52,19 +51,27 @@ const ShowClips = (props) => {
     function getCheckedEmo() {
         return new Promise(function(resolve, reject){
             let checkedEmo = [];
-            let resultImg = clips[clipNum[0]].thumbnail;
             for (const value of clipNum){
                 checkedEmo.push(clips[value].emotionlist[0])
             }
-            resolve(checkedEmo, resultImg)
+            resolve(checkedEmo)
         });
     }
 
+    // function getResultImg() {
+    //     return new Promise(function(resolve, reject){
+    //         let resultImg = clips[clipNum[0]].thumbnail;
+    //         resolve(resultImg)
+    //     });
+    // }
+    
     async function selectHandler() {
         let checkedEmo = await getCheckedEmo();
+        let resultImg = await getResultImg();
         history.push({
             pathname: '/result',
-            state: { videoIndex : videoIndex, checkedEmo : checkedEmo, thumbnail : resultImg },
+            // state: { videoIndex : videoIndex, checkedEmo : checkedEmo, thumbnail : resultImg},
+            state: { videoIndex : videoIndex, checkedEmo : checkedEmo }
         });
     }
 
@@ -107,7 +114,7 @@ const ShowClips = (props) => {
                 ))}
             </div>
 
-            <span class="checkbox">
+            <span class="checkbox" style = {load ? { visibility : "hidden" } : { visibility: "visible" }}>
                 <input type="checkbox" id="c1" onChange = { (e) => checkboxHandler(e, 0) }></input><br/>
                 <input type="checkbox" id="c2" onChange = { (e) => checkboxHandler(e, 1) }></input><br/>
                 <input type="checkbox" id="c3" onChange = { (e) => checkboxHandler(e, 2) }></input><br/>

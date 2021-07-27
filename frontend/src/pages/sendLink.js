@@ -47,7 +47,6 @@ const SendLink = () => {
                         alert("Fail");
                     }
                     else {
-                        alert("Wait for video!");
                         setVideoIndex(response.data);
                         setLoading(false);
                         setShowButton(true);
@@ -76,7 +75,7 @@ const SendLink = () => {
                 <div class="folder"><img id = "folderImg" src={ folderImg }/><span>Highlighter</span></div>
                 <div class="folder" id="open"><img id = "folderImg" src={ folderImg }/><span>Edit</span></div>
             </div>
-            <p id="text">Get 10-minute highlights from twitch</p>
+            <p id="text">Get highlight moments from twitch</p>
 
             <form onSubmit={ handleSubmit } id="linkForm">
                 <input
