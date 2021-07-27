@@ -5,6 +5,8 @@ const EMOTIONS = ['Angry', 'Disgusting', 'Fearful', 'Happy', 'Sad', 'Surprising'
 const ClipBox = (props) => {
 
     let thumbnail = props.thumbnail;
+    thumbnail = JSON.stringify(thumbnail);
+    thumbnail = thumbnail.replace(/\"/g,'');
     let emotionlist = props.emotionlist;
 
     function Emotion(props) {
@@ -25,7 +27,7 @@ const ClipBox = (props) => {
 
     return (
         <div class="videoBox">
-            <img src={"data:image/png;base64,"+ { thumbnail } } class="videoThumbnail"></img>
+            <img src={"data:image/png;base64,"+ thumbnail } class="videoThumbnail"></img>
             <span class="videoEmotions">
                 <EmotionList emotions={ emotionlist }/>
             </span>
