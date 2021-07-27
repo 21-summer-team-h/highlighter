@@ -7,15 +7,17 @@ import django.db
 
 def twitchDownload(VIDEO_ID):
     # 현재 값이 아무것도 없으면 error 발생
-    django.db.close_old_connections()
+    
     #target = Video.objects.order_by('-video_index')[0]
     try:
+        django.db.close_old_connections()
         target = Video.objects.order_by('-video_index')[0]
         VIDEO_index = int(target.video_index) + 1         #추가할 비디오 인덱스
         
     except IndexError as error:
-        VIDEO_index = 0
+        VIDEO_index = 1
     VIDEO_db_PATH="/usr/src/app/videos/v"+str(VIDEO_index)+".mp4"
+    django.db.close_old_connections()
     new = Video(video_index = VIDEO_index, video_path = VIDEO_db_PATH, highlight_count=5)  
     new.save()
 
