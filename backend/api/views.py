@@ -60,7 +60,7 @@ def getVideo(request) :
 # 사용자가 입력한 clip 번호 받기
 @api_view(['GET'])
 def getNums(request) :
-    clipNum = (request.GET.get('clipNum')
+    clipNum = (request.GET.get('clipNum'))
     print("---" + str(clipNum))
     get_video_index = str(request.GET.get('video_index'))
     django.db.close_old_connections()
