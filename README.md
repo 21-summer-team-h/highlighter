@@ -15,7 +15,7 @@
 ---
 
 ## System Architecture
-![ds](https://user-images.githubusercontent.com/55067949/126734280-115ae6db-4f02-4b3f-ac57-a6575964d581.PNG)
+![System Architecture](https://user-images.githubusercontent.com/55067949/127111616-b2c3b050-cdc3-4351-925b-ba067ebcd9c1.png)
 
 ---
 
