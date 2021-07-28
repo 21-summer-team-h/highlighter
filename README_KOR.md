@@ -15,6 +15,9 @@
 ## Display flow
 ![display-flow](https://user-images.githubusercontent.com/55067949/127104148-62b15fde-6f45-4376-b95f-b542c65d570d.png)
 
+![demo](https://user-images.githubusercontent.com/55067949/127353118-6d09fd25-4e27-406b-8e4d-c872a71ccf51.gif)
+
+
 ---
 
 ## System Architecture
