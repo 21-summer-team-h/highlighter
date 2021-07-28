@@ -10,6 +10,9 @@ ENG | [KOR](./README_KOR.md)
 - **Easy Select for Personalization**: You can pick up your favorite several clips and make highlight video with them. Emotion tags of each video would help you.
 - **Just Link, Click, and Get Highlight Video!**: Link your twitch video, click to choose favorite clips, and get the final video. These are all we want from you to provide the best highlight video for you.
 - **Watch our sample video!**: https://youtu.be/SkylbS7osOw
+
+![demo](https://user-images.githubusercontent.com/55067949/127352935-74bea3ef-a72d-4c7c-b264-fee0009effe2.gif)
+
 ---
 ## Display flow
 ![display-flow](https://user-images.githubusercontent.com/69420512/127254454-d63ab05f-88e2-4f6c-acf8-5bf1df41bf42.png)
