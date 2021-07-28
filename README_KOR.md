@@ -1,15 +1,18 @@
 # 📼 Highlighter
 
-### Make Your Own Twich Highlight Video Easily
+### 나만의 Twitch 하이라이트 비디오를 쉽게 만들 수 있습니다.
 
-> Highlighter is our web application project that helps you make a single highlight video by pulling out the five hottest clips from your video.
 
-- **Analysis-Based**: We analysis chats and emotions of video. Highlight extraction is done by analyzing video chat counts. We use AI model to show you about emotions of each clip, so you can understand the video more easily and choose according to your preference.
-- **Easy Select for Personalization**: You can pick up your favorite several clips and make highlight video with them. Emotion tags of each video would help you.
-- **Just Link, Click, and Get Highlight Video!**: Link your twitch video, click to choose favorite clips, and get the final video. These are all we want from you to provide the best highlight video for you.
+> Highlighter는 비디오에서 가장 핫한 클립 5개를 뽑아 하나의 하이라이트 비디오를 만들 수 있도록 도와주는 웹 애플리케이션 프로젝트입니다.
+
+- **Analysis-Based**: 우리는 영상의 채팅과 감정을 분석합니다. 하이라이트 추출은 동영상 채팅 수를 분석하여 수행됩니다. AI 모델을 사용하여 각 클립의 감정을 보여주므로 동영상을 보다 쉽게 이해하고 기호에 따라 선택할 수 있습니다.
+
+- **Easy Select for Personalization**: 마음에 드는 클립을 골라 하이라이트 영상을 만들 수 있습니다. 각 영상의 감정 태그가 도움이 될 것입니다.
+
+- **Just Link, Click, and Get Highlight Video!**: 트위치 비디오의 링크를 입력하고 마음에 드는 클립을 선택하여 클릭한 다음 최종 비디오를 얻을 수 있습니다.
 ---
 ## Display flow
-![display-flow](https://user-images.githubusercontent.com/69420512/127254454-d63ab05f-88e2-4f6c-acf8-5bf1df41bf42.png)
+![display-flow](https://user-images.githubusercontent.com/55067949/127104148-62b15fde-6f45-4376-b95f-b542c65d570d.png)
 
 ---
 
@@ -26,14 +29,14 @@
 
 ---
 
-## Getting Started
+## 시작하기
 ### local
 ```bat
 git clone https://github.com/21-summer-team-h/highlighter.git
 cd highlighter
 docker-compose up
 ```
-now you can access to localhost in your browser! <br>
+이제 브라우저에서 localhost에 액세스할 수 있습니다! <br>
 
 ### browser
 http://highlighter.shop
@@ -41,7 +44,7 @@ http://highlighter.shop
 ---
 
 ## Process
-![process](https://user-images.githubusercontent.com/69420512/127254802-6b1f9f84-9131-4895-a190-4ab17d2cbfc0.png)
+![process](https://user-images.githubusercontent.com/55067949/126746873-85131f1e-19e1-476b-a76f-ae4612c17991.jpg)
 
 ---
 
@@ -54,13 +57,13 @@ http://highlighter.shop
 - [moviepy](https://github.com/Zulko/moviepy) - MIT License
 
 
-### [API Specification](https://github.com/21-summer-team-h/highlighter/wiki)
+### [API 명세](https://github.com/21-summer-team-h/highlighter/wiki)
 ### [Notion Design Docs](https://www.notion.so/Team-H-Docs-f162f52cb49c486f9a1b97cf17767a3a)
 
 ---
 
 ## Docker images
-link to docker hub
+도커 허브
 
 ### [Frontend](https://hub.docker.com/repository/docker/ks0624/highlighter-frontend)
 ```bat
