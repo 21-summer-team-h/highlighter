@@ -122,3 +122,29 @@ def getClips(request) :
             os.remove(str(path_to_file)+".png")
 
     return JsonResponse(send_data, safe=False)
+
+
+@api_view(['GET'])
+def getThumbnail(request) :
+    get_video_index = str(request.GET.get('video_index', '93'))
+    send_data=[]
+    
+    path_to_file = '/usr/src/app/videos/vo' + str(get_video_index)
+    thumb=create_thumbnail(path_to_file)
+    if thumb==0:                                #썸네일 제작에서 에러 발생시 빈 json파일 전송
+        l={}
+        return JsonResponse(l, safe=False)
+    f = open(thumb, 'rb')
+    imgFile = File(f)
+    encoded = base64.b64encode(imgFile.read())
+    encoded = encoded.decode("UTF-8")
+
+    temp_data={
+        'thumbnail' : encoded
+    }
+
+    send_data.append(temp_data)
+    if os.path.isfile(str(path_to_file)+".png"):        #썸네일 이미지 삭제
+        os.remove(str(path_to_file)+".png")
+
+    return JsonResponse(send_data, safe=False)

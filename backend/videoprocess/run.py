@@ -91,8 +91,8 @@ def cut(target):
 
         cut_clip(target_path, starttime, endtime, save_path)
     print(path_list)
-    if os.path.isfile(target_path):        #썸네일 이미지 삭제
-        os.remove(target_path)
+    # if os.path.isfile(target_path):
+    #     os.remove(target_path)
     return path_list
 
         
