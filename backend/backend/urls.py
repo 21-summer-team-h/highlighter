@@ -13,14 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from api.views import getEmotion
 from os import name
 from django.contrib import admin
 from django.urls import path
-from api.views import getVideo
-from api.views import download
-from api.views import getAllEmotion, getNums
-from api.views import getClips
+from api.views import *
 
 
 urlpatterns = [
@@ -30,5 +26,6 @@ urlpatterns = [
     path('api/getEmotion/', getEmotion, name="getEmotion_backend_2_frontend"),
     path('api/getAllEmotion/', getAllEmotion, name="getAllEmotion_backend_2_frontend"),
     path('api/getNums/', getNums, name="getNums_backend_2_frontend"),
-    path('api/getClips/', getClips, name="getThumbnail_backend_2_frontend")
+    path('api/getClips/', getClips, name="getThumbnail_backend_2_frontend"),
+    path('api/getMainImg/', getMainImg, name="get_main_image_backend_2_frontend")
 ]
