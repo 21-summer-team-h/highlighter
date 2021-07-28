@@ -1,5 +1,7 @@
 # 📼 Highlighter
 
+ENG | [KOR](./README_KOR.md)
+
 ### Make Your Own Twich Highlight Video Easily
 
 > Highlighter is our web application project that helps you make a single highlight video by pulling out the five hottest clips from your video.
