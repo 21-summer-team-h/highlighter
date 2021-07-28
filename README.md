@@ -9,7 +9,7 @@
 - **Just Link, Click, and Get Highlight Video!**: Link your twitch video, click to choose favorite clips, and get the final video. These are all we want from you to provide the best highlight video for you.
 ---
 ## Display flow
-![display-flow](https://user-images.githubusercontent.com/55067949/127104148-62b15fde-6f45-4376-b95f-b542c65d570d.png)
+![display-flow](https://user-images.githubusercontent.com/69420512/127254454-d63ab05f-88e2-4f6c-acf8-5bf1df41bf42.png)
 
 ---
 
@@ -41,7 +41,7 @@ http://highlighter.shop
 ---
 
 ## Process
-![process](https://user-images.githubusercontent.com/55067949/126746873-85131f1e-19e1-476b-a76f-ae4612c17991.jpg)
+![process](https://user-images.githubusercontent.com/69420512/127254802-6b1f9f84-9131-4895-a190-4ab17d2cbfc0.png)
 
 ---
 
