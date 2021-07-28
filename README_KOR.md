@@ -11,12 +11,11 @@
 
 - **Just Link, Click, and Get Highlight Video!**: 트위치 비디오의 링크를 입력하고 마음에 드는 클립을 선택하여 클릭한 다음 최종 비디오를 얻을 수 있습니다.
 - **Watch our sample video!**: https://youtu.be/SkylbS7osOw
+
+![demo](https://user-images.githubusercontent.com/55067949/127353118-6d09fd25-4e27-406b-8e4d-c872a71ccf51.gif)
 ---
 ## Display flow
 ![display-flow](https://user-images.githubusercontent.com/55067949/127104148-62b15fde-6f45-4376-b95f-b542c65d570d.png)
-
-![demo](https://user-images.githubusercontent.com/55067949/127353118-6d09fd25-4e27-406b-8e4d-c872a71ccf51.gif)
-
 
 ---
 
