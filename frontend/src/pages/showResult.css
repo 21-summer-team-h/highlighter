@@ -64,11 +64,14 @@ body {
 }
 
 #videoBox {
-    width: 430px;
-    height: 250px;
     position: absolute;
     left: 235px;
     top: 120px;
+}
+
+#thumbnail {
+    width: 430px;
+    height: 250px;
 }
 
 #downloadButton {

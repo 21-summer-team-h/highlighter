@@ -16,7 +16,7 @@ const ShowResult = (props) => {
     const location = useLocation();
     const videoIndex = location.state.videoIndex;
     const checkedEmo = location.state.checkedEmo;
-    const [loader, setLoader] = useState(false);
+    const [loader, setLoader] = useState(true);
     const [showB, setShowB] = useState(false);
     const [thumb, setThumb] = useState(0);
 
@@ -37,9 +37,7 @@ const ShowResult = (props) => {
             }
             else {
                 setLoader(false);
-                thumbnail = response.data;
-                thumbnail = JSON.stringify(thumbnail);
-                thumbnail = thumbnail.replace(/\"/g,'');
+                let thumbnail = response.data;
                 setThumb(thumbnail);
                 setShowB(true);
             }
@@ -88,7 +86,7 @@ const ShowResult = (props) => {
             controls이 존재하면, 소리 조절(volume), 동영상 탐색(seek), 일시 정지(pause)/재시작(resume)을 할 수 있는 컨트롤러를 제공합니다.*/}
 
             <div id="videoBox">
-                {(thumb) ? (<img src={"data:image/png;base64,"+ thumb }></img>) : ""}
+                {thumb ? <img id="thumbnail" src={"data:image/png;base64,"+ thumb }></img> : ""}
             </div>
 
             <div class="emotionTags">
