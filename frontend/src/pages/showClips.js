@@ -114,7 +114,8 @@ const ShowClips = (props) => {
                 ))}
             </div>
 
-            <span class="checkbox" style = {load ? { visibility : "hidden" } : { visibility: "visible" }}>
+            {/* <span class="checkbox" style = {load ? { visibility : "hidden" } : { visibility: "visible" }}> */}
+            <span class="checkbox">
                 <input type="checkbox" id="c1" onChange = { (e) => checkboxHandler(e, 0) }></input><br/>
                 <input type="checkbox" id="c2" onChange = { (e) => checkboxHandler(e, 1) }></input><br/>
                 <input type="checkbox" id="c3" onChange = { (e) => checkboxHandler(e, 2) }></input><br/>
@@ -124,7 +125,9 @@ const ShowClips = (props) => {
 
             <button 
                 class="btn" id="selectButton" onClick = { selectBtnHandler } 
-                style = {showBtn ? { visibility : "visible" } : { visibility: "hidden" }}>select
+                // style = {showBtn ? { visibility : "visible" } : { visibility: "hidden" }}
+                >
+                    select
             </button>
 
             <div id="load">{load? <Loading/> : ""}</div>

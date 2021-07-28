@@ -15,14 +15,34 @@ const ShowResult = (props) => {
     const location = useLocation();
     const videoIndex = location.state.videoIndex;
     const checkedEmo = location.state.checkedEmo;
-    // let thumbnail = location.state.thumbnail;
-    //  thumbnail = JSON.stringify(thumbnail);
-    // thumbnail = thumbnail.replace(/\"/g,'');
 
     const emotionTags = checkedEmo.map((e, index) => (<li key={index}>#{EMOTIONS[e]}</li>));
 
     const [Video, setVideo] = useState([]);
+    const [thumbnail, setThumbnail] = useState([]);
     var fileDownload = require('js-file-download');
+
+    useEffect(() => {
+        axios.get("/api/getMainImg/",{ 
+            params: { 
+                video_index: videoIndex,
+            }
+        })
+        .then(response => {
+            if (response.data == {}){
+                alert("Failed to show clips");
+            }
+            else {
+                // console.log("thumbnail data : " + String(response.data)).substring(0, 10);
+                // console.log("thumbnail data : " + JSON.stringify(response.data.thumbnail).substring(0, 10));
+                // setThumbnail(String(response.data));
+                setThumbnail('//localhost/usr/src/app/videos/vo' + videoIndex + '.png')
+            }
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }, [])
 
     const handleDownload = (e) => {
         e.preventDefault();
@@ -64,7 +84,8 @@ const ShowResult = (props) => {
             controls이 존재하면, 소리 조절(volume), 동영상 탐색(seek), 일시 정지(pause)/재시작(resume)을 할 수 있는 컨트롤러를 제공합니다.*/}
 
             <div id="videoBox">
-                {/* <img src={"data:image/png;base64,"+ thumbnail }></img> */}
+                
+                <img src={"data:image/png;base64,"+ thumbnail }></img>
             </div>
 
             <div class="emotionTags">
