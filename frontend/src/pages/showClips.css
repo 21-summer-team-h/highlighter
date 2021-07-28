@@ -152,6 +152,14 @@ body {
     height: 30px;
 }
 
+#load {
+    position: absolute;
+    top: 300px;
+    left: 430px;
+    height: 50px;
+    width: 50px;
+}
+
 #loading2 {
     position: absolute;
     top: 540px;

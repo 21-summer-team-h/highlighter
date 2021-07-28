@@ -9,15 +9,16 @@ import ClipBox from './clipBox';
 const EMOTIONS = ['Angry', 'Disgusting', 'Fearful', 'Happy', 'Sad', 'Surprising', 'Neutral']
 
 // page 2
+
 const ShowClips = (props) => {
     const videoIndex = props.location.state.videoIndex;
     const history = useHistory();
     const [load, setLoad] = useState(true);
     const [loading, setLoading] = useState(false);
-    const [showBtn, setShowBtn] = useState(true);
+    const [showBtn, setShowBtn] = useState(false);
     const leftBar = EMOTIONS.map((emotion, index) => (<li key={index} id="emotions">#{emotion}</li>))
     const [clips, setClips] = useState();
-
+    
     // clip 5개 thumbnail, emotionlist 받기
     useEffect(() => {
         axios.get("/api/getClips/",{ 
@@ -30,6 +31,8 @@ const ShowClips = (props) => {
                 alert("Failed to show clips");
             }
             else {
+                setLoad(false);
+                setShowBtn(true);
                 setClips(response.data);
             }
         })
@@ -57,21 +60,12 @@ const ShowClips = (props) => {
             resolve(checkedEmo)
         });
     }
-
-    // function getResultImg() {
-    //     return new Promise(function(resolve, reject){
-    //         let resultImg = clips[clipNum[0]].thumbnail;
-    //         resolve(resultImg)
-    //     });
-    // }
     
     async function selectHandler() {
         let checkedEmo = await getCheckedEmo();
-        // let resultImg = await getResultImg();
         history.push({
             pathname: '/result',
-            // state: { videoIndex : videoIndex, checkedEmo : checkedEmo, thumbnail : resultImg},
-            state: { videoIndex : videoIndex, checkedEmo : checkedEmo }
+            state: { videoIndex : videoIndex, checkedEmo : checkedEmo}
         });
     }
 
@@ -90,6 +84,7 @@ const ShowClips = (props) => {
             }
         })
         .then(response => {
+            // console.log(response.data);
             selectHandler();
         })
         .catch(error => {
@@ -114,7 +109,7 @@ const ShowClips = (props) => {
                 ))}
             </div>
 
-            <span class="checkbox" style = {load ? { visibility : "hidden" } : { visibility: "visible" }}>
+            <span class="checkbox" style = {load ? { visibility : "hidden" } : { visibility : "visible" }}>
                 <input type="checkbox" id="c1" onChange = { (e) => checkboxHandler(e, 0) }></input><br/>
                 <input type="checkbox" id="c2" onChange = { (e) => checkboxHandler(e, 1) }></input><br/>
                 <input type="checkbox" id="c3" onChange = { (e) => checkboxHandler(e, 2) }></input><br/>
@@ -127,8 +122,8 @@ const ShowClips = (props) => {
                 style = {showBtn ? { visibility : "visible" } : { visibility: "hidden" }}>select
             </button>
 
-            <div id="load">{load? <Loading/> : ""}</div>
-            <div id="loading2">{loading? <Loading/> : ""}</div>
+            <div id="load">{load ? <Loading/> : ""}</div>
+            <div id="loading2">{loading ? <Loading/> : ""}</div>
         </div>
         </>
     )

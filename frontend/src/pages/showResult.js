@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Route, Link, useHistory, useLocation } from "react-router-dom";
 import './showResult.css';
 import axios from "axios";
+import Loading from './components/loading';
 import logoImg from "./images/logo.png";
 import Facebook_logo from "./images/facebook-logo.png"; 
 import Youtube_logo from "./images/youtube-logo.png"; 
@@ -15,18 +16,41 @@ const ShowResult = (props) => {
     const location = useLocation();
     const videoIndex = location.state.videoIndex;
     const checkedEmo = location.state.checkedEmo;
-    // let thumbnail = location.state.thumbnail;
-    //  thumbnail = JSON.stringify(thumbnail);
-    // thumbnail = thumbnail.replace(/\"/g,'');
+    const [loader, setLoader] = useState(false);
+    const [showB, setShowB] = useState(false);
+    const [thumb, setThumb] = useState(0);
 
     const emotionTags = checkedEmo.map((e, index) => (<li key={index}>#{EMOTIONS[e]}</li>));
 
     const [Video, setVideo] = useState([]);
     var fileDownload = require('js-file-download');
 
+    useEffect(() => {
+        axios.get("/api/getMainImg/", { 
+            params: { 
+                video_index: videoIndex, 
+            }
+        })
+        .then(response => {
+            if (response.data == {}){
+                alert("Failed to show thumbnail");
+            }
+            else {
+                setLoader(false);
+                thumbnail = response.data;
+                thumbnail = JSON.stringify(thumbnail);
+                thumbnail = thumbnail.replace(/\"/g,'');
+                setThumb(thumbnail);
+                setShowB(true);
+            }
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }, [])
+
     const handleDownload = (e) => {
         e.preventDefault();
-        console.log("download");
 
         axios.get("/api/getVideo/",{ 
             params: { 
@@ -64,15 +88,19 @@ const ShowResult = (props) => {
             controls이 존재하면, 소리 조절(volume), 동영상 탐색(seek), 일시 정지(pause)/재시작(resume)을 할 수 있는 컨트롤러를 제공합니다.*/}
 
             <div id="videoBox">
-                {/* <img src={"data:image/png;base64,"+ thumbnail }></img> */}
+                {(thumb) ? (<img src={"data:image/png;base64,"+ thumb }></img>) : ""}
             </div>
 
             <div class="emotionTags">
                 { emotionTags }
             </div>
 
+            <div id="loader">{loader ? <Loading/> : ""}</div>
+
             <form onSubmit = { handleDownload }>
-                <button type="submit" id="downloadButton" class="btn">Download</button>
+                <button type="submit" id="downloadButton" class="btn"
+                style = {showB ? { visibility : "visible" } : { visibility: "hidden" }}>
+                Download</button>
             </form>
 
         </div>

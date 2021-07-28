@@ -23,7 +23,7 @@ import os
 @api_view(['POST'])
 def download(request) :
     videoID = str(request.data.get('videoID'))      #videoID = 트위치영상 아이디
-    returnTwitchDownload = twitchDownload(videoID)
+    returnTwitchDownload = 34 #twitchDownload(videoID)
     if returnTwitchDownload != 0 :
         return Response(data=returnTwitchDownload)
     else :
@@ -66,7 +66,7 @@ def getNums(request) :
     django.db.close_old_connections()
     returnSelectCat = select_concatenate(get_video_index, clipNum)
     if returnSelectCat != 0 :
-            return Response(data=returnSelectCat)
+            return Response(data=1)
     else :
         return Response(data="Error")
 
@@ -125,9 +125,9 @@ def getClips(request) :
 
 
 @api_view(['GET'])
-def getThumbnail(request) :
+def getMainImg(request) :
     get_video_index = str(request.GET.get('video_index', '93'))
-    send_data=[]
+    # send_data=[]
     
     path_to_file = '/usr/src/app/videos/vo' + str(get_video_index)
     thumb=create_thumbnail(path_to_file)
@@ -139,12 +139,12 @@ def getThumbnail(request) :
     encoded = base64.b64encode(imgFile.read())
     encoded = encoded.decode("UTF-8")
 
-    temp_data={
-        'thumbnail' : encoded
-    }
+    # temp_data={
+    #     'thumbnail' : encoded
+    # }
 
-    send_data.append(temp_data)
+    # send_data.append(temp_data)
     if os.path.isfile(str(path_to_file)+".png"):        #썸네일 이미지 삭제
         os.remove(str(path_to_file)+".png")
 
-    return JsonResponse(send_data, safe=False)
+    return JsonResponse(encoded, safe=False)
