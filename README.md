@@ -1,11 +1,10 @@
 # 📼 Highlighter
 
-### Make Your Own Highlight Video Easily by Picking Up the Highlight Part of Your Twitch Video
-
+### Make Your Own Twich Highlight Video Easily
 
 > Highlighter is our web application project that helps you make a single highlight video by pulling out the five hottest clips from your video.
 
-- **Analysis-Based**: We analysis chats and emotions of video. Highlight extraction is done by analyzing video comments. We use AI model to show you about emotions of each clip, so you can understand the video more easily and choose according to your preference.
+- **Analysis-Based**: We analysis chats and emotions of video. Highlight extraction is done by analyzing video chat counts. We use AI model to show you about emotions of each clip, so you can understand the video more easily and choose according to your preference.
 - **Easy Select for Personalization**: You can pick up your favorite several clips and make highlight video with them. Emotion tags of each video would help you.
 - **Just Link, Click, and Get Highlight Video!**: Link your twitch video, click to choose favorite clips, and get the final video. These are all we want from you to provide the best highlight video for you.
 ---
@@ -87,4 +86,4 @@ ks0624/highlighter-nginx
 
 |김서경 <br> Seokyung Kim|김재훈 <br> Jaehun Kim|문수인 <br> Sooin Moon|장예서 <br> Yeseo Jang|채지은 <br> Chae Jieun|
 |:---:|:---:|:---:|:---:|:---:|
-|Backend<br>DevOps|Backend<br>DevOps|Frontend<br>AI|Backend<br>DevOps|Frontend<br>AI|
+|Backend<br>DevOps|Backend|Frontend<br>AI|Backend<br>DevOps|Frontend<br>AI|
