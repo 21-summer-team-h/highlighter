@@ -43,8 +43,6 @@ def voice_detection(video, start, end):
     isspeaking = [] # 초 단위
     sum = 0
 
-    # print("frame 수 :", len(frames))
-
     for i, frame in enumerate(frames):
         if i % 17 == 0:
             if (sum > 15) : 
@@ -55,9 +53,6 @@ def voice_detection(video, start, end):
 
         if vad.is_speech(frame.bytes, sample_rate):
             sum += 1
-
-    # print(isspeaking)
-    # print("isspeaking :", len(isspeaking), "초")
 
     start = 0
     end = 0

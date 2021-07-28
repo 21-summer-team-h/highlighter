@@ -36,13 +36,11 @@ def getEmotion(request) :
     get_video_index = str(request.data.get('video_index'))
     django.db.close_old_connections()
     
-    print('get_video_index' + get_video_index)
     emotion_list = list()
     for i in range(5):
         highlight_target = Highlight.objects.get(video_index = get_video_index, highlight_index = i)
         emotion_list.append(highlight_target.emotion_1)
 
-    print('emotion_list : ' + str(emotion_list))
     return Response(data={
         "emotion_list": emotion_list
         })
@@ -61,7 +59,6 @@ def getVideo(request) :
 @api_view(['GET'])
 def getNums(request) :
     clipNum = (request.GET.get('clipNum'))
-    print("---" + str(clipNum))
     get_video_index = str(request.GET.get('video_index'))
     django.db.close_old_connections()
     returnSelectCat = select_concatenate(get_video_index, clipNum)
@@ -79,7 +76,6 @@ def getAllEmotion(request) :
     get_video_index = str(request.data.get('video_index'))
     django.db.close_old_connections()
     
-    print('get_video_index' + get_video_index)
     all_emotion_list = list()
     for i in range(5):
         highlight_target = Highlight.objects.get(video_index = get_video_index, highlight_index = i)

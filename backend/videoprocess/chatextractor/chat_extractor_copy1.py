@@ -12,39 +12,20 @@ def extract_time(text):
     time=alltime[:4]
     return time
 
-# def extract_sec(text):
-#     text=text.split("[")[1]
-#     text=text.split("]")[0]
-#     alltime=text.split("]")[0]
-#     sec=alltime[5:7]
-#     return sec
-
-# def extract_name(text):
-#     text=text.split("[")[1]
-#     text=text.split("] ")[1]
-#     name=text.split(": ")[0]
-#     return name
-
 def extract_text(text):
     text=text.split("[")[1]
     text=text.split("]")[1]
     text=text.split(": ")[1].split("\nName")[0]
     return text
 
-# def extract_toptime(text):
-#     text=text[:1]
-#     return text
 
 def selecthighlight(VIDEO_index):
     VIDEO_txt_PATH="/usr/src/app/videos/v"+str(VIDEO_index)+".txt"
-    df = pd.read_table(VIDEO_txt_PATH) # 본인 경로!!
+    df = pd.read_table(VIDEO_txt_PATH) 
     df.columns=['origin']
-
-    #print(df)
 
     df2= pd.DataFrame(columns = ['time', 'text'])
 
-    #append까지 하려고 하니깐 len(df)는 너무 큰가 봐요..
     for i in range(len(df)) :
         df2=df2.append({'time':extract_time(str(df.iloc[i])), 'text':extract_text(str(df.iloc[i]))},ignore_index=True)
     highlight=pd.DataFrame(df2['time'].value_counts().head(5).rename_axis("TIME").reset_index(name="COUNTS"))

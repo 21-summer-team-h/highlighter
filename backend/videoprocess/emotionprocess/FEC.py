@@ -42,8 +42,5 @@ def FER (video, face_cascade, emotion_classifier):
         label = emotionResults.argmax()
         results[i] = label
         emotionResults[label] = 0
-
-    #video.release()
-    print(results)
     return results
 

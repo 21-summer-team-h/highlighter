@@ -84,7 +84,6 @@ const ShowClips = (props) => {
             }
         })
         .then(response => {
-            // console.log(response.data);
             selectHandler();
         })
         .catch(error => {
