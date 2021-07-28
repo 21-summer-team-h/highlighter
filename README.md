@@ -9,6 +9,7 @@ ENG | [KOR](./README_KOR.md)
 - **Analysis-Based**: We analysis chats and emotions of video. Highlight extraction is done by analyzing video chat counts. We use AI model to show you about emotions of each clip, so you can understand the video more easily and choose according to your preference.
 - **Easy Select for Personalization**: You can pick up your favorite several clips and make highlight video with them. Emotion tags of each video would help you.
 - **Just Link, Click, and Get Highlight Video!**: Link your twitch video, click to choose favorite clips, and get the final video. These are all we want from you to provide the best highlight video for you.
+- **Watch our sample video!**: https://youtu.be/SkylbS7osOw
 ---
 ## Display flow
 ![display-flow](https://user-images.githubusercontent.com/69420512/127254454-d63ab05f-88e2-4f6c-acf8-5bf1df41bf42.png)
