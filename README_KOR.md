@@ -10,6 +10,7 @@
 - **Easy Select for Personalization**: 마음에 드는 클립을 골라 하이라이트 영상을 만들 수 있습니다. 각 영상의 감정 태그가 도움이 될 것입니다.
 
 - **Just Link, Click, and Get Highlight Video!**: 트위치 비디오의 링크를 입력하고 마음에 드는 클립을 선택하여 클릭한 다음 최종 비디오를 얻을 수 있습니다.
+- **Watch our sample video!**: https://youtu.be/SkylbS7osOw
 ---
 ## Display flow
 ![display-flow](https://user-images.githubusercontent.com/55067949/127104148-62b15fde-6f45-4376-b95f-b542c65d570d.png)
