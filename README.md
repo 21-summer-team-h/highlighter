@@ -17,6 +17,7 @@ ENG | [KOR](./README_KOR.md)
 
 ### Sample
 ![faker-sample2](https://user-images.githubusercontent.com/55067949/127729639-1b1b861d-b056-4693-a44d-ef3aa8b6f3aa.gif)
+sample source : https://www.twitch.tv/videos/1091467404
 
 ---
 ## Display flow
