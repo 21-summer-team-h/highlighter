@@ -16,7 +16,7 @@ ENG | [KOR](./README_KOR.md)
 ![demo](https://user-images.githubusercontent.com/55067949/127352935-74bea3ef-a72d-4c7c-b264-fee0009effe2.gif)
 
 ### Sample
-![faker-sample2](https://user-images.githubusercontent.com/55067949/127729639-1b1b861d-b056-4693-a44d-ef3aa8b6f3aa.gif)
+![faker-sample2](https://user-images.githubusercontent.com/55067949/127729639-1b1b861d-b056-4693-a44d-ef3aa8b6f3aa.gif)<br>
 sample source : https://www.twitch.tv/videos/1091467404
 
 ---
